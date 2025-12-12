@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Heart, Users, Target, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SOCIALS, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
+import dennyPortrait from "@/assets/denny-portrait.jpg";
 
 // WhatsApp Icon
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -14,7 +15,7 @@ const values = [
   {
     icon: Heart,
     title: "Passie voor cijfers",
-    description: "Administratie is voor mij geen saaie klus, maar een puzzel die ik graag oplos. Die passie merk je in mijn werk.",
+    description: "Administratie is voor mij geen saaie klus, maar een puzzel die ik graag oplos.",
   },
   {
     icon: Users,
@@ -24,7 +25,7 @@ const values = [
   {
     icon: Target,
     title: "Nuchtere aanpak",
-    description: "Geen onnodige poespas of ingewikkelde termen. Gewoon duidelijk advies dat werkt voor jouw situatie.",
+    description: "Geen onnodige poespas of ingewikkelde termen. Gewoon duidelijk advies.",
   },
   {
     icon: Award,
@@ -40,10 +41,10 @@ export default function OverOns() {
       <section className="bg-gradient-to-br from-secondary via-background to-background py-16 md:py-24">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-4xl font-bold md:text-5xl animate-slide-up">
+            <h1 className="mb-6 text-4xl font-bold md:text-5xl opacity-0 animate-slide-up">
               Over Administratiekantoor DDP
             </h1>
-            <p className="text-lg text-muted-foreground animate-slide-up" style={{ animationDelay: "100ms" }}>
+            <p className="text-lg text-muted-foreground opacity-0 animate-slide-up" style={{ animationDelay: "100ms" }}>
               Leer de persoon achter de cijfers kennen.
             </p>
           </div>
@@ -55,25 +56,28 @@ export default function OverOns() {
         <div className="container">
           <div className="mx-auto max-w-4xl">
             <div className="grid gap-12 md:grid-cols-5">
-              {/* Photo placeholder */}
+              {/* Photo */}
               <div className="md:col-span-2">
-                <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-secondary">
-                  <div className="flex h-full items-center justify-center">
-                    <div className="text-center">
-                      <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-primary text-4xl font-bold text-primary-foreground">
-                        DK
-                      </div>
-                      <p className="text-lg font-semibold">Denny Kalijan</p>
-                      <p className="text-sm text-muted-foreground">Oprichter</p>
-                    </div>
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl opacity-0 animate-scale-in">
+                  <img 
+                    src={dennyPortrait} 
+                    alt="Denny Kalijan - Oprichter Administratiekantoor DDP" 
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
+                  {/* Name badge */}
+                  <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-background/90 p-4 backdrop-blur-sm">
+                    <p className="font-semibold">Denny Kalijan</p>
+                    <p className="text-sm text-muted-foreground">Oprichter & Administrateur</p>
                   </div>
                 </div>
               </div>
 
               {/* Content */}
               <div className="md:col-span-3">
-                <h2 className="mb-6 text-3xl font-bold">Hallo, ik ben Denny</h2>
-                <div className="space-y-4 text-muted-foreground">
+                <h2 className="mb-6 text-3xl font-bold opacity-0 animate-slide-up">Hallo, ik ben Denny</h2>
+                <div className="space-y-4 text-muted-foreground opacity-0 animate-slide-up" style={{ animationDelay: "100ms" }}>
                   <p>
                     Mijn naam is Denny Kalijan en ik ben de drijvende kracht achter Administratiekantoor DDP. 
                     Met een oprechte passie voor cijfers en een nuchtere, praktische aanpak help ik ondernemers 
@@ -94,20 +98,20 @@ export default function OverOns() {
                   </p>
                 </div>
 
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <Button asChild variant="default" size="lg">
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row opacity-0 animate-slide-up" style={{ animationDelay: "200ms" }}>
+                  <Button asChild variant="default" size="lg" className="group">
                     <Link to="/contact">
                       Maak kennis
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" size="lg">
+                  <Button asChild variant="outline" size="lg" className="group">
                     <a
                       href={SOCIALS.whatsappUrl("Hallo Denny! Ik zou graag meer willen weten over jullie diensten.")}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <WhatsAppIcon className="h-5 w-5" />
+                      <WhatsAppIcon className="h-5 w-5 transition-transform group-hover:scale-110" />
                       Stuur een berichtje
                     </a>
                   </Button>
@@ -132,11 +136,11 @@ export default function OverOns() {
             {values.map((value, index) => (
               <div
                 key={value.title}
-                className="rounded-xl border border-border bg-card p-6 text-center transition-all hover:border-primary/50 hover:shadow-lg animate-slide-up"
+                className="group rounded-xl border border-border bg-card p-6 text-center card-hover opacity-0 animate-slide-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary">
-                  <value.icon className="h-7 w-7 text-primary" />
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
+                  <value.icon className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
                 </div>
                 <h3 className="mb-2 font-semibold">{value.title}</h3>
                 <p className="text-sm text-muted-foreground">{value.description}</p>
@@ -154,10 +158,10 @@ export default function OverOns() {
             Benieuwd wat ik voor jouw administratie kan betekenen? 
             Plan een vrijblijvend kennismakingsgesprek.
           </p>
-          <Button asChild variant="accent" size="lg">
+          <Button asChild variant="accent" size="lg" className="group">
             <Link to="/contact">
               Plan een gesprek
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
         </div>

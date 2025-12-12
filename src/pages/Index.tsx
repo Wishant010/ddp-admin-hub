@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PricingCards } from "@/components/PricingCards";
 import { ReviewsList, StarRating } from "@/components/Reviews";
 import { STEPS, SOCIALS, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -14,8 +15,18 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 export default function Home() {
   return (
     <>
-      {/* Hero Section with enhanced animations */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90 py-20 md:py-32">
+      {/* Hero Section with background image */}
+      <section className="relative overflow-hidden py-20 md:py-32">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src={heroBg} 
+            alt="" 
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/80" />
+        </div>
+        
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-white/5 animate-float" />
