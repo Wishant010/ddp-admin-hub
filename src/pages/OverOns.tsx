@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Heart, Users, Target, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SOCIALS, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
+import { BlurText, SpotlightCard } from "@/components/reactbits";
 import dennyPortrait from "@/assets/denny-portrait.jpg";
 
 // WhatsApp Icon
@@ -41,10 +42,13 @@ export default function OverOns() {
       <section className="bg-gradient-to-br from-secondary via-background to-background py-16 md:py-24">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-4xl font-bold md:text-5xl opacity-0 animate-slide-up">
-              Over Administratiekantoor DDP
-            </h1>
-            <p className="text-lg text-muted-foreground opacity-0 animate-slide-up" style={{ animationDelay: "100ms" }}>
+            <BlurText 
+              text="Over Administratiekantoor DDP"
+              className="justify-center text-4xl font-bold md:text-5xl mb-6"
+              delay={80}
+              animateBy="words"
+            />
+            <p className="text-lg text-muted-foreground opacity-0 animate-slide-up" style={{ animationDelay: "300ms" }}>
               Leer de persoon achter de cijfers kennen.
             </p>
           </div>
@@ -134,17 +138,16 @@ export default function OverOns() {
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {values.map((value, index) => (
-              <div
+              <SpotlightCard
                 key={value.title}
-                className="group rounded-xl border border-border bg-card p-6 text-center card-hover opacity-0 animate-slide-up"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="p-6 text-center"
               >
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
-                  <value.icon className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary transition-all duration-300">
+                  <value.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="mb-2 font-semibold">{value.title}</h3>
                 <p className="text-sm text-muted-foreground">{value.description}</p>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>
