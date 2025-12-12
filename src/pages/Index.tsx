@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PricingCards } from "@/components/PricingCards";
 import { ReviewsList, StarRating } from "@/components/Reviews";
 import { STEPS, SOCIALS, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
+import { BlurText, ShinyText, CountUp, SpotlightCard, GradientText } from "@/components/reactbits";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -36,25 +37,27 @@ export default function Home() {
 
         <div className="container relative">
           <div className="mx-auto max-w-3xl text-center">
-            {/* Badge */}
+            {/* Badge with ShinyText */}
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-primary-foreground/90 backdrop-blur-sm animate-fade-in">
               <Sparkles className="h-4 w-4 animate-pulse-soft" />
-              <span>Betrouwbare administratie voor ondernemers</span>
+              <ShinyText text="Betrouwbare administratie voor ondernemers" speed={4} />
             </div>
 
-            <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl opacity-0 animate-slide-up">
-              Jouw administratie,{" "}
-              <span className="relative inline-block">
-                onze zorg
-                <svg className="absolute -bottom-2 left-0 w-full opacity-0 animate-fade-in" style={{ animationDelay: "0.6s" }} viewBox="0 0 200 12" fill="none">
-                  <path d="M2 10C50 4 150 4 198 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-accent" />
-                </svg>
-              </span>
-            </h1>
-            <p className="mb-8 text-lg text-primary-foreground/80 md:text-xl opacity-0 animate-slide-up" style={{ animationDelay: "150ms" }}>
+            {/* Hero title with BlurText */}
+            <div className="mb-6">
+              <BlurText 
+                text="Jouw administratie, onze zorg"
+                className="justify-center text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl"
+                delay={80}
+                animateBy="words"
+                direction="top"
+              />
+            </div>
+
+            <p className="mb-8 text-lg text-primary-foreground/80 md:text-xl opacity-0 animate-slide-up" style={{ animationDelay: "400ms" }}>
               Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers. Geen gedoe, wel duidelijkheid.
             </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row opacity-0 animate-slide-up" style={{ animationDelay: "300ms" }}>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row opacity-0 animate-slide-up" style={{ animationDelay: "600ms" }}>
               <Button asChild variant="hero" size="xl" className="group">
                 <Link to="/pakketten">
                   Bekijk pakketten 
@@ -79,35 +82,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Indicators with stagger animation */}
-      <section className="border-b border-border bg-muted/30 py-8">
+      {/* Statistics Section with CountUp */}
+      <section className="border-b border-border bg-muted/30 py-12">
         <div className="container">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
-              { icon: Users, text: "50+ tevreden klanten", color: "text-primary" },
-              { icon: Clock, text: "Snelle reactie", color: "text-primary" },
-              { icon: Shield, text: "Betrouwbaar", color: "text-primary" },
-              { icon: Star, text: "4.9 beoordeling", color: "text-accent fill-accent" },
-            ].map((item, index) => (
+              { value: 50, suffix: "+", label: "Tevreden klanten", icon: Users },
+              { value: 5, suffix: " jaar", label: "Ervaring", icon: Clock },
+              { value: 4.9, suffix: "", label: "Beoordeling", icon: Star, decimals: 1 },
+              { value: 100, suffix: "%", label: "Betrouwbaar", icon: Shield },
+            ].map((stat, index) => (
               <div 
-                key={item.text}
-                className="flex items-center gap-2 text-muted-foreground opacity-0 animate-fade-in hover-scale" 
-                style={{ animationDelay: `${400 + index * 100}ms` }}
+                key={stat.label}
+                className="text-center opacity-0 animate-fade-in" 
+                style={{ animationDelay: `${200 + index * 100}ms` }}
               >
-                <item.icon className={`h-5 w-5 ${item.color}`} />
-                <span className="text-sm font-medium">{item.text}</span>
+                <div className="mb-2 flex items-center justify-center">
+                  <stat.icon className="mr-2 h-5 w-5 text-primary" />
+                  <span className="text-3xl font-bold text-foreground md:text-4xl">
+                    <CountUp 
+                      to={stat.value} 
+                      suffix={stat.suffix}
+                      duration={2.5}
+                      delay={0.3 + index * 0.1}
+                      decimals={stat.decimals || 0}
+                    />
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us - Enhanced cards */}
+      {/* Why Choose Us - SpotlightCard */}
       <section className="py-20 md:py-28">
         <div className="container">
           <div className="mx-auto mb-16 max-w-2xl text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl opacity-0 animate-slide-up">Waarom kiezen voor DDP?</h2>
-            <p className="text-lg text-muted-foreground opacity-0 animate-slide-up" style={{ animationDelay: "100ms" }}>
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+              Waarom kiezen voor <GradientText text="DDP" className="font-bold" />?
+            </h2>
+            <p className="text-lg text-muted-foreground">
               Persoonlijke aandacht, heldere communicatie en een administratie die gewoon klopt.
             </p>
           </div>
@@ -117,17 +133,16 @@ export default function Home() {
               { title: "Geen jargon", description: "We leggen alles uit in begrijpelijke taal. Geen verrassingen of ingewikkelde termen." },
               { title: "Transparante prijzen", description: "Vaste maandprijzen zonder verborgen kosten. Je weet precies waar je aan toe bent." }
             ].map((feature, index) => (
-              <div 
-                key={feature.title} 
-                className="group rounded-xl border border-border bg-card p-8 card-hover opacity-0 animate-slide-up" 
-                style={{ animationDelay: `${200 + index * 150}ms` }}
+              <SpotlightCard 
+                key={feature.title}
+                className="p-8"
               >
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-secondary transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
                   <CheckCircle className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>
