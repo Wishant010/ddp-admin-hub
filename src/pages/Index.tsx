@@ -16,7 +16,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 export default function Home() {
   return (
     <>
-      {/* Hero Section with background image */}
+      {/* Hero Section with 3D background */}
       <section className="relative overflow-hidden py-20 md:py-32">
         {/* Background image with overlay */}
         <div className="absolute inset-0">
@@ -25,7 +25,7 @@ export default function Home() {
             alt="" 
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-primary/85" />
         </div>
         
         {/* Animated background elements */}
