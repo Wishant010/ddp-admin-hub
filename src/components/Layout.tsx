@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, MapPin, ArrowRight, Instagram } from "lucide-react";
+import { Menu, X, Phone, Mail, ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_ITEMS, CONTACT, SOCIALS, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -19,33 +19,38 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 transition-all duration-300">
         <div className="container flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+          {/* Logo with hover animation */}
+          <Link to="/" className="group flex items-center gap-2">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
               <span className="text-lg font-bold text-primary-foreground">D</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-semibold leading-none">DDP</span>
+              <span className="text-lg font-semibold leading-none transition-colors group-hover:text-primary">DDP</span>
               <span className="text-xs text-muted-foreground">Administratie</span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with hover effects */}
           <nav className="hidden items-center gap-1 md:flex">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
                 className={cn(
-                  "px-4 py-2 text-sm font-medium transition-colors rounded-lg",
+                  "relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg",
                   location.pathname === item.href
                     ? "text-primary bg-secondary"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
                 {item.label}
+                {/* Active indicator line */}
+                <span className={cn(
+                  "absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-primary rounded-full transition-all duration-300",
+                  location.pathname === item.href ? "w-4" : "w-0"
+                )} />
               </Link>
             ))}
           </nav>
@@ -56,20 +61,23 @@ export function Header() {
               href={SOCIALS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="rounded-lg p-2 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground hover:scale-110"
               aria-label="Instagram"
             >
               <Instagram className="h-5 w-5" />
             </a>
-            <Button asChild size="sm">
-              <Link to="/contact">Contact</Link>
+            <Button asChild size="sm" className="group">
+              <Link to="/contact">
+                Contact
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="rounded-lg p-2 text-foreground md:hidden"
+            className="rounded-lg p-2 text-foreground transition-all duration-200 hover:bg-muted md:hidden"
             aria-label="Open menu"
           >
             <Menu className="h-6 w-6" />
@@ -77,7 +85,7 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay with animations */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 bg-foreground md:hidden animate-fade-in">
           <div className="flex h-full flex-col">
@@ -85,31 +93,31 @@ export function Header() {
             <div className="flex justify-end p-4">
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg p-2 text-primary-foreground"
+                className="rounded-lg p-2 text-primary-foreground transition-transform hover:rotate-90 duration-300"
                 aria-label="Sluit menu"
               >
                 <X className="h-8 w-8" />
               </button>
             </div>
 
-            {/* Navigation Links */}
+            {/* Navigation Links with stagger animation */}
             <nav className="flex flex-1 flex-col justify-center px-8">
               {NAV_ITEMS.map((item, index) => (
                 <Link
                   key={item.href}
                   to={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="group flex items-center justify-between border-b border-primary-foreground/10 py-5 text-2xl font-medium text-primary-foreground"
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  className="group flex items-center justify-between border-b border-primary-foreground/10 py-5 text-2xl font-medium text-primary-foreground opacity-0 animate-slide-up"
+                  style={{ animationDelay: `${index * 75}ms` }}
                 >
                   {item.label}
-                  <ArrowRight className="h-6 w-6 opacity-50 transition-transform group-hover:translate-x-2" />
+                  <ArrowRight className="h-6 w-6 opacity-50 transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-100" />
                 </Link>
               ))}
             </nav>
 
             {/* Contact Info + WhatsApp */}
-            <div className="space-y-4 p-8">
+            <div className="space-y-4 p-8 opacity-0 animate-slide-up" style={{ animationDelay: "400ms" }}>
               <div className="flex items-center gap-3 text-primary-foreground/70">
                 <Phone className="h-5 w-5" />
                 <span>{CONTACT.phoneDisplay}</span>
@@ -151,13 +159,11 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+            <Link to="/" className="group inline-flex items-center gap-2">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary transition-transform duration-300 group-hover:scale-110">
                 <span className="text-lg font-bold text-primary-foreground">D</span>
               </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-semibold leading-none">Administratiekantoor DDP</span>
-              </div>
+              <span className="text-lg font-semibold leading-none">Administratiekantoor DDP</span>
             </Link>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
               Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers. 
@@ -168,7 +174,7 @@ export function Footer() {
                 href={SOCIALS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="rounded-lg p-2 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground hover:scale-110"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -177,7 +183,7 @@ export function Footer() {
                 href={SOCIALS.whatsappUrl(DEFAULT_WHATSAPP_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="rounded-lg p-2 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground hover:scale-110"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon className="h-5 w-5" />
@@ -185,7 +191,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links with hover effects */}
           <div>
             <h4 className="mb-4 font-semibold">Snelle links</h4>
             <ul className="space-y-2">
@@ -193,9 +199,9 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     to={item.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="group inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    {item.label}
+                    <span className="link-underline">{item.label}</span>
                   </Link>
                 </li>
               ))}
@@ -206,24 +212,17 @@ export function Footer() {
           <div>
             <h4 className="mb-4 font-semibold">Contact</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                <a href={`tel:${CONTACT.phone}`} className="hover:text-foreground">
+              <li className="flex items-start gap-2 group">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 transition-colors group-hover:text-primary" />
+                <a href={`tel:${CONTACT.phone}`} className="hover:text-foreground transition-colors">
                   {CONTACT.phoneDisplay}
                 </a>
               </li>
-              <li className="flex items-start gap-2">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0" />
-                <a href={`mailto:${CONTACT.email}`} className="hover:text-foreground">
+              <li className="flex items-start gap-2 group">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 transition-colors group-hover:text-primary" />
+                <a href={`mailto:${CONTACT.email}`} className="hover:text-foreground transition-colors">
                   {CONTACT.email}
                 </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>
-                  {CONTACT.address}<br />
-                  {CONTACT.postalCity}
-                </span>
               </li>
             </ul>
           </div>
@@ -239,14 +238,15 @@ export function Footer() {
   );
 }
 
-// WhatsApp Floating Button
+// WhatsApp Floating Button with enhanced animation
 export function WhatsAppFloatingButton() {
   return (
     <a
       href={SOCIALS.whatsappUrl(DEFAULT_WHATSAPP_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-primary-foreground shadow-lg transition-all hover:scale-110 hover:shadow-xl animate-pulse-glow"
+      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl animate-bounce-in animate-pulse-glow"
+      style={{ animationDelay: "1s" }}
       aria-label="Chat via WhatsApp"
     >
       <WhatsAppIcon className="h-7 w-7" />
