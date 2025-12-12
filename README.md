@@ -1,74 +1,54 @@
-# Welcome to your Lovable project
+# Administratiekantoor DDP
 
-## Project info
+Website voor Administratiekantoor DDP - persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Technologieën
 
-## How can I edit this code?
+- **Next.js 15** - React framework met App Router
+- **React 19** - UI library
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - UI componenten library
+- **Framer Motion** - Animaties
+- **React Query** - Server state management
 
-There are several ways of editing your application.
+## Lokaal ontwikkelen
 
-**Use Lovable**
+```bash
+# Dependencies installeren
+npm install
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+# Development server starten
+npm run dev
 
-Changes made via Lovable will be committed automatically to this repo.
+# Production build maken
+npm run build
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Bun installed - [install Bun](https://bun.sh/docs/installation)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-bun install
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-bun run dev
+# Production server starten
+npm start
 ```
 
-**Edit a file directly in GitHub**
+## Project structuur
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+├── app/                 # Next.js App Router pages
+│   ├── page.tsx         # Home page
+│   ├── pakketten/       # Pakketten page
+│   ├── over-ons/        # Over ons page
+│   ├── contact/         # Contact page
+│   ├── reviews/         # Reviews page
+│   └── admin/reviews/   # Admin reviews panel
+├── components/          # React componenten
+│   ├── ui/              # shadcn/ui componenten
+│   └── reactbits/       # Custom animatie componenten
+├── lib/                 # Utility functies en constants
+├── hooks/               # Custom React hooks
+└── public/              # Static assets
+```
 
-**Use GitHub Codespaces**
+## Deployen
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Bun 1.3.4
-- Vite 7.2.7
-- TypeScript
-- React 19.2.1
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Dit project kan worden gedeployed op platforms zoals:
+- Vercel (aanbevolen voor Next.js)
+- Netlify
+- Elke andere Node.js hosting provider
