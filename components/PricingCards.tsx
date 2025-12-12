@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Check, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { PACKAGES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +13,7 @@ interface PricingCardProps {
   features: readonly string[];
   highlighted?: boolean;
   badge?: string;
-  delay?: number;
+  index: number;
 }
 
 function PricingCard({
@@ -25,89 +24,138 @@ function PricingCard({
   features,
   highlighted = false,
   badge,
-  delay = 0,
 }: PricingCardProps) {
   return (
     <div
       className={cn(
-        "group relative flex flex-col rounded-2xl border-2 p-8 transition-all duration-500 opacity-0 animate-slide-up",
-        highlighted
-          ? "border-primary bg-gradient-to-b from-secondary to-background shadow-xl scale-[1.02] md:scale-105 hover:shadow-2xl"
-          : "border-border bg-card hover:border-primary/50 hover:shadow-xl hover:-translate-y-2"
+        "group relative",
+        highlighted && "z-10 md:-mt-4"
       )}
-      style={{ animationDelay: `${delay}ms` }}
     >
-      {/* Badge with animation */}
+      {/* Badge */}
       {badge && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <span className="inline-flex items-center rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-accent-foreground shadow-lg animate-bounce-in glow-accent">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full
+            bg-accent text-accent-foreground
+            text-xs font-bold uppercase tracking-wider
+            shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
             {badge}
           </span>
         </div>
       )}
 
-      {/* Glow effect on hover for highlighted */}
-      {highlighted && (
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-      )}
+      {/* Card */}
+      <div className={cn(
+        "relative rounded-2xl p-8 transition-all duration-300",
+        "bg-white border-2",
+        highlighted
+          ? "border-primary shadow-xl shadow-primary/10 hover:shadow-2xl hover:shadow-primary/15"
+          : "border-white/80 shadow-lg hover:shadow-xl hover:border-primary/30",
+        "hover:-translate-y-1"
+      )}>
 
-      {/* Header */}
-      <div className="relative mb-6">
-        <h3 className="text-xl font-semibold">{name}</h3>
-        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-      </div>
-
-      {/* Price with counter animation effect */}
-      <div className="relative mb-6">
-        <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-bold tracking-tight transition-transform duration-300 group-hover:scale-105">€{price}</span>
-          <span className="text-muted-foreground">/{period}</span>
+        {/* Header */}
+        <div className="text-center mb-6">
+          <h3 className={cn(
+            "text-lg font-bold mb-2",
+            highlighted ? "text-primary" : "text-foreground"
+          )}>
+            {name}
+          </h3>
+          <p className="text-sm text-muted-foreground">
+            {description}
+          </p>
         </div>
-      </div>
 
-      {/* Features with stagger animation */}
-      <ul className="relative mb-8 flex-1 space-y-3">
-        {features.map((feature, index) => (
-          <li
-            key={index}
-            className="flex items-start gap-3 transition-all duration-300"
-            style={{ transitionDelay: `${index * 50}ms` }}
-          >
+        {/* Price with decorative arcs */}
+        <div className="relative flex justify-center mb-8">
+          <div className="relative text-center px-6 py-3">
+            {/* Decorative arcs */}
+            <svg
+              className="absolute inset-0 h-full w-full"
+              viewBox="0 0 180 80"
+              fill="none"
+              aria-hidden="true"
+            >
+              {/* Top arc */}
+              <path
+                d="M25 35 C 50 12, 130 12, 155 35"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                className={cn(
+                  highlighted ? "text-primary/40" : "text-primary/25"
+                )}
+              />
+              {/* Bottom arc */}
+              <path
+                d="M25 50 C 60 75, 120 75, 155 50"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                className={cn(
+                  highlighted ? "text-primary/25" : "text-primary/15"
+                )}
+              />
+            </svg>
+
             <div className={cn(
-              "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110",
-              highlighted ? "bg-primary text-primary-foreground" : "bg-secondary text-primary"
+              "text-5xl font-extrabold tracking-tight",
+              highlighted ? "text-primary" : "text-foreground"
             )}>
-              <Check className="h-3 w-3" />
+              €{price}
             </div>
-            <span className="text-sm text-muted-foreground">{feature}</span>
-          </li>
-        ))}
-      </ul>
+            <div className="mt-1 text-sm font-medium text-muted-foreground">
+              {period}
+            </div>
+          </div>
+        </div>
 
-      {/* CTA with hover animation */}
-      <Button
-        asChild
-        variant={highlighted ? "accent" : "outline"}
-        size="lg"
-        className="relative w-full overflow-hidden group/btn"
-      >
-        <Link href="/contact" className="flex items-center justify-center gap-2">
-          Kies {name}
-          <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+        {/* Features */}
+        <ul className="space-y-3 mb-8">
+          {features.map((feature, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <div className={cn(
+                "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
+                highlighted
+                  ? "bg-primary text-white"
+                  : "bg-secondary text-primary"
+              )}>
+                <Check className="h-3 w-3" />
+              </div>
+              <span className="text-sm text-muted-foreground">
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA Button */}
+        <Link
+          href="/contact"
+          className={cn(
+            "flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-sm transition-all duration-300",
+            highlighted
+              ? "bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg"
+              : "bg-secondary text-primary hover:bg-primary hover:text-white"
+          )}
+        >
+          <span>Kies {name}</span>
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
-      </Button>
+      </div>
     </div>
   );
 }
 
 export function PricingCards() {
   return (
-    <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+    <div className="grid gap-6 md:grid-cols-3 md:gap-8 items-start">
       {PACKAGES.map((pkg, index) => (
         <PricingCard
           key={pkg.name}
           {...pkg}
-          delay={index * 150}
+          index={index}
         />
       ))}
     </div>

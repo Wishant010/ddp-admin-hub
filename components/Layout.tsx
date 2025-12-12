@@ -69,9 +69,14 @@ export function Header() {
             >
               <Instagram className="h-5 w-5" />
             </a>
+            <Button asChild variant="outline" size="sm">
+              <Link href="/pakketten">
+                Bekijk pakketten
+              </Link>
+            </Button>
             <Button asChild size="sm" className="group">
               <Link href="/contact">
-                Contact
+                Offerte aanvragen
                 <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </Button>
@@ -259,9 +264,13 @@ export function WhatsAppFloatingButton() {
 
 // Main Layout Wrapper
 export function Layout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
+      {/* Hide header on homepage since Hero has its own header */}
+      {!isHomePage && <Header />}
       <main className="flex-1">{children}</main>
       <Footer />
       <WhatsAppFloatingButton />
