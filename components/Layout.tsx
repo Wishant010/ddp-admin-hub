@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Mail, ArrowRight, Instagram } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_ITEMS, CONTACT, SOCIALS, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -15,140 +16,144 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Header Component
+// =============================================================================
+// UNIFIED HEADER - Matches homepage navbar style
+// =============================================================================
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 transition-all duration-300">
-        <div className="container flex h-16 items-center justify-between">
-          {/* Logo with hover animation */}
-          <Link href="/" className="group flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-              <span className="text-lg font-bold text-primary-foreground">D</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-semibold leading-none transition-colors group-hover:text-primary">DDP</span>
-              <span className="text-xs text-muted-foreground">Administratie</span>
-            </div>
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+          scrolled
+            ? "bg-white/95 backdrop-blur-md border-b border-slate-200/50 shadow-sm"
+            : "bg-white border-b border-slate-100"
+        )}
+      >
+        <div className="mx-auto flex h-20 w-full items-center justify-between px-8 lg:px-16">
+          {/* Logo + Text - Left */}
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <Image
+              src="/logo.png"
+              alt="DRFA Logo"
+              width={160}
+              height={80}
+              className="h-16 w-auto"
+            />
+            <span className="hidden text-xl font-semibold text-slate-800 sm:block">
+              Administratiekantoor
+            </span>
           </Link>
 
-          {/* Desktop Navigation with hover effects */}
-          <nav className="hidden items-center gap-1 md:flex">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden items-center gap-10 lg:flex">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg",
+                  "text-base font-medium transition-colors relative",
                   pathname === item.href
-                    ? "text-primary bg-secondary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "text-[#0B3772]"
+                    : "text-slate-600 hover:text-[#0B3772]"
                 )}
               >
                 {item.label}
-                {/* Active indicator line */}
-                <span className={cn(
-                  "absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-primary rounded-full transition-all duration-300",
-                  pathname === item.href ? "w-4" : "w-0"
-                )} />
+                {pathname === item.href && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full" />
+                )}
               </Link>
             ))}
           </nav>
 
-          {/* Desktop CTA + Socials */}
-          <div className="hidden items-center gap-3 md:flex">
-            <a
-              href={SOCIALS.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-2 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground hover:scale-110"
-              aria-label="Instagram"
+          {/* Desktop CTAs - Right */}
+          <div className="hidden items-center gap-4 lg:flex shrink-0">
+            <Link
+              href="#pakketten"
+              className="rounded-full border-2 border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-all hover:border-[#0B3772] hover:text-[#0B3772] hover:bg-slate-50"
             >
-              <Instagram className="h-5 w-5" />
-            </a>
-            <Button asChild variant="outline" size="sm">
-              <Link href="/pakketten">
-                Bekijk pakketten
-              </Link>
-            </Button>
-            <Button asChild size="sm" className="group">
-              <Link href="/contact">
-                Offerte aanvragen
-                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </Button>
+              Bekijk pakketten
+            </Link>
+            <Link
+              href="#contact"
+              className="rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-emerald-400 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:from-sky-300 hover:via-blue-400 hover:to-emerald-300 hover:shadow-lg"
+            >
+              Offerte aanvragen
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="rounded-lg p-2 text-foreground transition-all duration-200 hover:bg-muted md:hidden"
+            className="rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
             aria-label="Open menu"
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="h-7 w-7" />
           </button>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay with animations */}
+      {/* Spacer for fixed header */}
+      <div className="h-20" />
+
+      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-foreground md:hidden animate-fade-in">
+        <div className="fixed inset-0 z-50 bg-[#0B3772] lg:hidden">
           <div className="flex h-full flex-col">
             {/* Close Button */}
-            <div className="flex justify-end p-4">
+            <div className="flex justify-end p-6">
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg p-2 text-primary-foreground transition-transform hover:rotate-90 duration-300"
+                className="rounded-lg p-2 text-white transition-transform hover:rotate-90 duration-300"
                 aria-label="Sluit menu"
               >
                 <X className="h-8 w-8" />
               </button>
             </div>
 
-            {/* Navigation Links with stagger animation */}
+            {/* Mobile Nav Links */}
             <nav className="flex flex-1 flex-col justify-center px-8">
-              {NAV_ITEMS.map((item, index) => (
+              {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="group flex items-center justify-between border-b border-primary-foreground/10 py-5 text-2xl font-medium text-primary-foreground opacity-0 animate-slide-up"
-                  style={{ animationDelay: `${index * 75}ms` }}
+                  className="group flex items-center justify-between border-b border-white/10 py-5 text-2xl font-medium text-white"
                 >
                   {item.label}
-                  <ArrowRight className="h-6 w-6 opacity-50 transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-100" />
+                  <ChevronRight className="h-6 w-6 opacity-50 transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-100" />
                 </Link>
               ))}
             </nav>
 
-            {/* Contact Info + WhatsApp */}
-            <div className="space-y-4 p-8 opacity-0 animate-slide-up" style={{ animationDelay: "400ms" }}>
-              <div className="flex items-center gap-3 text-primary-foreground/70">
-                <Phone className="h-5 w-5" />
-                <span>{CONTACT.phoneDisplay}</span>
-              </div>
-              <div className="flex items-center gap-3 text-primary-foreground/70">
-                <Mail className="h-5 w-5" />
-                <span>{CONTACT.email}</span>
-              </div>
-              <Button
-                asChild
-                variant="whatsapp"
-                size="lg"
-                className="mt-6 w-full"
+            {/* Mobile CTAs */}
+            <div className="space-y-4 p-8">
+              <Link
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-emerald-400 py-4 text-center text-lg font-semibold text-white shadow-lg"
               >
-                <a
-                  href={SOCIALS.whatsappUrl(DEFAULT_WHATSAPP_MESSAGE)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <WhatsAppIcon className="h-5 w-5" />
-                  WhatsApp ons
-                </a>
-              </Button>
+                Offerte aanvragen
+              </Link>
+              <Link
+                href="#pakketten"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full rounded-full border-2 border-white/30 py-4 text-center text-lg font-semibold text-white"
+              >
+                Bekijk pakketten
+              </Link>
             </div>
           </div>
         </div>
@@ -157,7 +162,9 @@ export function Header() {
   );
 }
 
-// Footer Component
+// =============================================================================
+// FOOTER
+// =============================================================================
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -168,10 +175,14 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="group inline-flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary transition-transform duration-300 group-hover:scale-110">
-                <span className="text-lg font-bold text-primary-foreground">D</span>
-              </div>
-              <span className="text-lg font-semibold leading-none">Administratiekantoor DDP</span>
+              <Image
+                src="/logo.png"
+                alt="DRFA Logo"
+                width={80}
+                height={40}
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+              />
+              <span className="text-lg font-semibold leading-none">Administratiekantoor DRFA</span>
             </Link>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
               Persoonlijke administratieve ondersteuning voor freelancers, zzp&apos;ers en kleine ondernemers.
@@ -199,7 +210,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links with hover effects */}
+          {/* Quick Links */}
           <div>
             <h4 className="mb-4 font-semibold">Snelle links</h4>
             <ul className="space-y-2">
@@ -238,7 +249,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground md:flex-row">
-          <p>© {currentYear} Administratiekantoor DDP. Alle rechten voorbehouden.</p>
+          <p>© {currentYear} Administratiekantoor DRFA. Alle rechten voorbehouden.</p>
           <p>KVK: {CONTACT.kvk}</p>
         </div>
       </div>
@@ -246,7 +257,9 @@ export function Footer() {
   );
 }
 
-// WhatsApp Floating Button with enhanced animation
+// =============================================================================
+// WHATSAPP FLOATING BUTTON
+// =============================================================================
 export function WhatsAppFloatingButton() {
   return (
     <a
@@ -262,7 +275,9 @@ export function WhatsAppFloatingButton() {
   );
 }
 
-// Main Layout Wrapper
+// =============================================================================
+// MAIN LAYOUT WRAPPER
+// =============================================================================
 export function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isHomePage = pathname === "/";

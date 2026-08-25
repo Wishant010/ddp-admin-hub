@@ -1,9 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { ArrowRight, Check, Crown, Layers, Rocket, Sprout, type LucideIcon } from "lucide-react";
 import { PACKAGES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+
+const PACKAGE_ICONS: Record<string, LucideIcon> = {
+  Basis: Sprout,
+  Compleet: Layers,
+  Premium: Crown,
+};
 
 interface PricingCardProps {
   name: string;
@@ -13,7 +19,6 @@ interface PricingCardProps {
   features: readonly string[];
   highlighted?: boolean;
   badge?: string;
-  index: number;
 }
 
 function PricingCard({
@@ -25,124 +30,150 @@ function PricingCard({
   highlighted = false,
   badge,
 }: PricingCardProps) {
+  const Icon = PACKAGE_ICONS[name] ?? Rocket;
+
   return (
     <div
       className={cn(
-        "group relative",
-        highlighted && "z-10 md:-mt-4"
+        "relative mx-auto w-full max-w-[430px] md:max-w-none",
+        // Compleet als eerste op mobiel, gewoon in het midden op desktop
+        highlighted && "order-first md:order-none z-10"
       )}
     >
       {/* Badge */}
       {badge && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full
-            bg-accent text-accent-foreground
-            text-xs font-bold uppercase tracking-wider
-            shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
+        <div className="absolute -top-4 left-1/2 z-20 -translate-x-1/2 md:-translate-y-3">
+          <span
+            className="inline-flex items-center rounded-full px-[17px] py-2 text-[11px] font-extrabold uppercase tracking-[0.04em] text-white"
+            style={{
+              background: "linear-gradient(90deg, #FF9D25, #FF7B17)",
+              boxShadow: "0 8px 20px rgba(244, 125, 24, 0.22)",
+            }}
+          >
             {badge}
           </span>
         </div>
       )}
 
       {/* Card */}
-      <div className={cn(
-        "relative rounded-2xl p-8 transition-all duration-300",
-        "bg-white border-2",
-        highlighted
-          ? "border-primary shadow-xl shadow-primary/10 hover:shadow-2xl hover:shadow-primary/15"
-          : "border-white/80 shadow-lg hover:shadow-xl hover:border-primary/30",
-        "hover:-translate-y-1"
-      )}>
-
-        {/* Header */}
-        <div className="text-center mb-6">
-          <h3 className={cn(
-            "text-lg font-bold mb-2",
-            highlighted ? "text-primary" : "text-foreground"
-          )}>
-            {name}
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            {description}
-          </p>
+      <div
+        className={cn(
+          "flex h-full flex-col rounded-[28px] bg-white px-6 py-7 text-center md:min-h-[580px] md:px-9 md:py-9",
+          "transition-[transform,box-shadow,border-color] duration-[220ms] ease-out motion-reduce:transition-none motion-reduce:transform-none",
+          highlighted
+            ? cn(
+                "border-[1.5px] border-[#20B99B]",
+                "shadow-[0_22px_60px_rgba(17,135,112,0.14),0_4px_14px_rgba(17,135,112,0.06)]",
+                "md:-translate-y-3 md:hover:-translate-y-4",
+                "hover:shadow-[0_26px_68px_rgba(17,135,112,0.17),0_5px_16px_rgba(17,135,112,0.07)]"
+              )
+            : cn(
+                "border border-[#14375A]/[0.07]",
+                "shadow-[0_18px_50px_rgba(10,42,75,0.10),0_3px_10px_rgba(10,42,75,0.04)]",
+                "hover:-translate-y-[5px] hover:shadow-[0_24px_60px_rgba(10,42,75,0.13)]"
+              )
+        )}
+      >
+        {/* Icoon */}
+        <div
+          className="mx-auto flex h-14 w-14 items-center justify-center rounded-[18px] border"
+          style={
+            highlighted
+              ? {
+                  background: "linear-gradient(135deg, #EAFBF7 0%, #E1F8F1 100%)",
+                  borderColor: "rgba(19, 157, 130, 0.08)",
+                }
+              : {
+                  background: "linear-gradient(135deg, #F0F7FF 0%, #E8F4FF 100%)",
+                  borderColor: "rgba(30, 130, 200, 0.08)",
+                }
+          }
+        >
+          <Icon
+            className={cn("h-[26px] w-[26px]", highlighted ? "text-[#139D82]" : "text-[#237EDC]")}
+            strokeWidth={1.7}
+            aria-hidden="true"
+          />
         </div>
 
-        {/* Price with decorative arcs */}
-        <div className="relative flex justify-center mb-8">
-          <div className="relative text-center px-6 py-3">
-            {/* Decorative arcs */}
-            <svg
-              className="absolute inset-0 h-full w-full"
-              viewBox="0 0 180 80"
-              fill="none"
-              aria-hidden="true"
-            >
-              {/* Top arc */}
-              <path
-                d="M25 35 C 50 12, 130 12, 155 35"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                className={cn(
-                  highlighted ? "text-primary/40" : "text-primary/25"
-                )}
-              />
-              {/* Bottom arc */}
-              <path
-                d="M25 50 C 60 75, 120 75, 155 50"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                className={cn(
-                  highlighted ? "text-primary/25" : "text-primary/15"
-                )}
-              />
-            </svg>
+        {/* Pakketnaam */}
+        <h3
+          className={cn(
+            "mt-4 text-[22px] font-extrabold tracking-[-0.02em]",
+            highlighted ? "text-[#15977F]" : "text-[#102D4F]"
+          )}
+        >
+          {name}
+        </h3>
 
-            <div className={cn(
-              "text-5xl font-extrabold tracking-tight",
-              highlighted ? "text-primary" : "text-foreground"
-            )}>
-              €{price}
-            </div>
-            <div className="mt-1 text-sm font-medium text-muted-foreground">
-              {period}
-            </div>
-          </div>
+        {/* Omschrijving */}
+        <p className="mx-auto mt-2 min-h-[46px] max-w-[230px] text-[14px] leading-[1.55] text-[#718095]">
+          {description}
+        </p>
+
+        {/* Divider-accent */}
+        <span
+          className="mx-auto mt-5 block h-[2px] w-10 rounded-full"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(90deg, #B9E9DF, #78DCC6)" }}
+        />
+
+        {/* Prijs */}
+        <div
+          className={cn(
+            "mt-[22px] text-[54px] font-extrabold leading-none tracking-[-0.04em]",
+            highlighted ? "text-[#15977F]" : "text-[#102B52]"
+          )}
+        >
+          €{price}
         </div>
+        <div className="mt-[5px] text-sm font-semibold text-[#738196]">{period}</div>
 
         {/* Features */}
-        <ul className="space-y-3 mb-8">
-          {features.map((feature, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <div className={cn(
-                "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
-                highlighted
-                  ? "bg-primary text-white"
-                  : "bg-secondary text-primary"
-              )}>
-                <Check className="h-3 w-3" />
-              </div>
-              <span className="text-sm text-muted-foreground">
-                {feature}
+        <ul className="mt-8 space-y-3.5 text-left">
+          {features.map((feature) => (
+            <li key={feature} className="flex items-start gap-3">
+              <span
+                className={cn(
+                  "mt-0.5 flex h-[21px] w-[21px] shrink-0 items-center justify-center rounded-full",
+                  highlighted ? "bg-[#E7F8F3] text-[#11977E]" : "bg-[#EFF9F6] text-[#16A184]"
+                )}
+              >
+                <Check className="h-3 w-3" strokeWidth={2.2} aria-hidden="true" />
               </span>
+              <span className="text-[14px] leading-[1.45] text-[#53667B]">{feature}</span>
             </li>
           ))}
         </ul>
 
-        {/* CTA Button */}
-        <Link
-          href="/contact"
-          className={cn(
-            "flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-sm transition-all duration-300",
-            highlighted
-              ? "bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg"
-              : "bg-secondary text-primary hover:bg-primary hover:text-white"
-          )}
-        >
-          <span>Kies {name}</span>
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-        </Link>
+        {/* CTA */}
+        <div className="mt-auto pt-8">
+          <Link
+            href="#contact"
+            className={cn(
+              "group flex h-[54px] w-full items-center justify-center gap-2 rounded-[16px] text-[15px] font-bold",
+              "transition-[transform,box-shadow,background-color] duration-[220ms] ease-out motion-reduce:transition-none",
+              "focus:outline-none focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-[#2598EB]/25",
+              highlighted
+                ? "text-white hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(31,158,203,0.28)]"
+                : "bg-[#F1F7FB] text-[#163C69] hover:-translate-y-[1px] hover:bg-[#E8F3FA]"
+            )}
+            style={
+              highlighted
+                ? {
+                    background: "linear-gradient(90deg, #208BF4 0%, #20CFAE 100%)",
+                    boxShadow: "0 10px 26px rgba(31, 158, 203, 0.22)",
+                  }
+                : undefined
+            }
+          >
+            Kies {name}
+            <ArrowRight
+              className="h-[17px] w-[17px] transition-transform duration-[220ms] group-hover:translate-x-0.5 motion-reduce:transition-none"
+              aria-hidden="true"
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -150,13 +181,9 @@ function PricingCard({
 
 export function PricingCards() {
   return (
-    <div className="grid gap-6 md:grid-cols-3 md:gap-8 items-start">
-      {PACKAGES.map((pkg, index) => (
-        <PricingCard
-          key={pkg.name}
-          {...pkg}
-          index={index}
-        />
+    <div className="grid items-stretch gap-6 md:grid-cols-3 lg:gap-7">
+      {PACKAGES.map((pkg) => (
+        <PricingCard key={pkg.name} {...pkg} />
       ))}
     </div>
   );

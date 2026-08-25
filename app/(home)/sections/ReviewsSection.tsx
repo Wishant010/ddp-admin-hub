@@ -1,13 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ReviewsList, StarRating } from "@/components/Reviews";
 
 export function ReviewsSection() {
   return (
-    <section className="bg-slate-50 py-20 md:py-28">
+    <section className="bg-gradient-to-br from-sky-100 via-sky-50 to-blue-50 py-20 md:py-28">
       <div className="container">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <div className="mb-4 inline-flex items-center justify-center gap-1">
@@ -19,14 +16,6 @@ export function ReviewsSection() {
           </p>
         </div>
         <ReviewsList limit={3} />
-        <div className="mt-12 text-center">
-          <Button asChild variant="outline" size="lg" className="group">
-            <Link href="/reviews">
-              Alle reviews bekijken
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
-        </div>
       </div>
     </section>
   );

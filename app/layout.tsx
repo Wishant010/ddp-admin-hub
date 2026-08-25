@@ -19,12 +19,20 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Administratiekantoor DDP</title>
+        <title>Administratiekantoor DRFA</title>
         <meta name="description" content="Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers." />
-        <meta name="author" content="Administratiekantoor DDP" />
-        <meta property="og:title" content="Administratiekantoor DDP" />
+        <meta name="author" content="Administratiekantoor DRFA" />
+
+        {/* Open Graph / Social Media */}
+        <meta property="og:title" content="Administratiekantoor DRFA" />
         <meta property="og:description" content="Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers." />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="/logo.png" />
+
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        <meta name="theme-color" content="#0B3772" />
       </head>
       <body>
         <QueryClientProvider client={queryClient}>

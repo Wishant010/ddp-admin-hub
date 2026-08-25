@@ -18,7 +18,7 @@ export function PackagesSection() {
         >
           <path
             d="M1440 0 L1440 0 Q1440 200 1040 200 L0 200 L0 0 Z"
-            fill="white"
+            fill="#ffffff"
           />
         </svg>
       </div>
@@ -47,7 +47,7 @@ export function PackagesSection() {
         >
           <path
             d="M0 200 L0 200 Q0 0 400 0 L1440 0 L1440 200 Z"
-            fill="white"
+            fill="#e0f2fe"
           />
         </svg>
       </div>

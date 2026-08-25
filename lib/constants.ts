@@ -1,6 +1,6 @@
 // Contact Information
 export const CONTACT = {
-  email: "info@adminddp.nl",
+  email: "info@admindrfa.nl",
   phone: "+31 6 54324404",
   phoneDisplay: "06 5432 4404",
   address: "Zevenwoudenplantsoen 11",
@@ -11,18 +11,18 @@ export const CONTACT = {
 
 // Social Links
 export const SOCIALS = {
-  instagram: "https://instagram.com/adminddp",
+  instagram: "https://instagram.com/admindrfa",
   whatsappUrl: (message: string) =>
     `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`,
 } as const;
 
 // Navigation Items
 export const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "Pakketten", href: "/pakketten" },
-  { label: "Over ons", href: "/over-ons" },
-  { label: "Reviews", href: "/reviews" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "#top" },
+  { label: "Pakketten", href: "#pakketten" },
+  { label: "Over ons", href: "#over-ons" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Contact", href: "#contact" },
 ] as const;
 
 // Packages/Pricing

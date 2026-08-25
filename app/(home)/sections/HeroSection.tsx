@@ -1,65 +1,94 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Star, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import {
+  Menu,
+  X,
+  ChevronRight,
+  ArrowRight,
+  Clock3,
+  ShieldCheck,
+  UserRound,
+  Check,
+} from "lucide-react";
 
 // =============================================================================
 // HERO HEADER
 // =============================================================================
 function HeroHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Pakketten", href: "/pakketten" },
-    { label: "Over ons", href: "/over-ons" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "#top" },
+    { label: "Pakketten", href: "#pakketten" },
+    { label: "Over ons", href: "#over-ons" },
+    { label: "Reviews", href: "#reviews" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className="relative z-20 w-full">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm">
-            <span className="text-xl font-bold text-white">D</span>
-          </div>
-          <div className="hidden sm:block">
-            <span className="text-lg font-semibold text-white">Administratiekantoor DDP</span>
-          </div>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0F2F4F]/85 backdrop-blur-md border-b border-white/10"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-20 w-full max-w-[1320px] items-center justify-between px-6 sm:px-10 lg:px-16">
+        {/* Logo + Tekst - Links */}
+        <Link href="#top" className="flex items-center gap-3 shrink-0">
+          <Image
+            src="/logo.png"
+            alt="DRFA Logo"
+            width={96}
+            height={96}
+            className="h-12 w-12 rounded-full bg-white p-1 shadow-md"
+          />
+          <span className="hidden text-lg font-semibold tracking-tight text-white xl:text-xl sm:block lg:hidden xl:block">
+            Administratiekantoor DRFA
+          </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 lg:flex">
+        {/* Desktop Navigation - Gecentreerd */}
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-9">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-white/80 transition-colors hover:text-white"
+              className="whitespace-nowrap text-base font-medium text-white/85 transition-colors hover:text-white"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* Desktop CTA's */}
-        <div className="hidden items-center gap-4 lg:flex">
+        {/* Desktop CTA's - Rechts */}
+        <div className="hidden items-center gap-3 lg:flex shrink-0">
           <Link
-            href="#"
-            className="text-sm font-medium text-white/70 transition-colors hover:text-white"
-          >
-            Inloggen
-          </Link>
-          <Link
-            href="/pakketten"
-            className="rounded-full border-2 border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10"
+            href="#pakketten"
+            className="whitespace-nowrap rounded-full border border-white/35 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10 xl:px-6"
           >
             Bekijk pakketten
           </Link>
           <Link
-            href="/contact"
-            className="rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-emerald-400"
+            href="#contact"
+            className="whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-[1px] hover:brightness-105 xl:px-6"
+            style={{
+              background: "linear-gradient(90deg, #29A8FF 0%, #27D3B2 100%)",
+              boxShadow: "0 10px 30px rgba(26, 133, 220, 0.22)",
+            }}
           >
             Offerte aanvragen
           </Link>
@@ -71,13 +100,13 @@ function HeroHeader() {
           className="rounded-lg p-2 text-white transition-colors hover:bg-white/10 lg:hidden"
           aria-label="Open menu"
         >
-          <Menu className="h-6 w-6" />
+          <Menu className="h-7 w-7" />
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#0B3772] lg:hidden">
+        <div className="fixed inset-0 z-50 bg-[#0F2F4F] lg:hidden">
           <div className="flex h-full flex-col">
             {/* Close Button */}
             <div className="flex justify-end p-6">
@@ -108,14 +137,17 @@ function HeroHeader() {
             {/* Mobile CTA's */}
             <div className="space-y-4 p-8">
               <Link
-                href="/contact"
+                href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full rounded-full bg-emerald-500 py-4 text-center text-lg font-semibold text-white shadow-lg"
+                className="block w-full rounded-full py-4 text-center text-lg font-semibold text-white shadow-lg"
+                style={{
+                  background: "linear-gradient(90deg, #29A8FF 0%, #27D3B2 100%)",
+                }}
               >
                 Offerte aanvragen
               </Link>
               <Link
-                href="/pakketten"
+                href="#pakketten"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full rounded-full border-2 border-white/30 py-4 text-center text-lg font-semibold text-white"
               >
@@ -130,192 +162,95 @@ function HeroHeader() {
 }
 
 // =============================================================================
-// DASHBOARD MOCKUP CARD
+// ORGANISCHE WITTE CURVE ONDERAAN DE HERO
 // =============================================================================
-function DashboardMockup() {
+function HeroWave() {
   return (
-    <div className="w-full max-w-[560px]">
-      {/* Tablet Frame */}
-      <div className="relative rounded-[28px] bg-slate-900/60 p-3 shadow-2xl ring-1 ring-white/10">
-        {/* Screen bezel effect */}
-        <div className="absolute left-1/2 top-2 h-1 w-16 -translate-x-1/2 rounded-full bg-white/10" />
+    <svg
+      viewBox="0 0 1440 180"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      className="pointer-events-none absolute bottom-[-1px] left-0 z-[3] block w-full h-[clamp(95px,11vw,180px)]"
+    >
+      <path
+        d="M0,148
+           C120,120 245,62 430,56
+           C625,50 770,84 925,108
+           C1080,132 1235,136 1340,119
+           C1385,112 1415,106 1440,108
+           L1440,181
+           L0,181
+           Z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  );
+}
 
-        {/* Screen Content */}
-        <div className="overflow-hidden rounded-[22px] bg-white/95">
-          {/* Dashboard Header */}
-          <div className="border-b border-gray-100 bg-gray-50/80 px-6 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs font-medium text-gray-400">OVERZICHT</p>
-                <h3 className="text-lg font-bold text-gray-900">Dashboard</h3>
-              </div>
-              <div className="flex gap-2">
-                <div className="h-3 w-3 rounded-full bg-gray-200" />
-                <div className="h-3 w-3 rounded-full bg-gray-200" />
-                <div className="h-3 w-3 rounded-full bg-gray-200" />
-              </div>
-            </div>
-          </div>
+// =============================================================================
+// BENEFIT CARDS - verbinden de curve met de volgende witte sectie
+// =============================================================================
+const BENEFITS = [
+  {
+    icon: Clock3,
+    title: "Snelle reactie",
+    description: "Binnen 24 uur antwoord",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Betrouwbaar",
+    description: "Transparant & eerlijk",
+  },
+  {
+    icon: UserRound,
+    title: "Persoonlijk contact",
+    description: "Altijd dezelfde adviseur",
+  },
+  {
+    icon: Check,
+    title: "Geen verrassingen",
+    description: "Vaste maandprijs",
+  },
+] as const;
 
-          {/* Dashboard Content */}
-          <div className="space-y-6 p-6">
-            {/* Section 1: Openstaande Facturen */}
-            <div>
-              <div className="mb-3 flex items-center justify-between">
-                <h4 className="text-sm font-semibold text-gray-700">Openstaande facturen</h4>
-                <span className="text-xs font-medium text-emerald-500">+12.5%</span>
-              </div>
+function BenefitCards() {
+  return (
+    <section className="relative z-10 bg-white">
+      <div className="mx-auto w-full max-w-[1320px] px-6 sm:px-10 lg:px-16">
+        <div className="relative pt-7 md:pt-9">
+          <p className="text-center text-[12px] font-bold uppercase tracking-[0.18em] text-[#2685E8]">
+            Waarom ondernemers kiezen voor DRFA
+          </p>
 
-              {/* Stacked Bar */}
-              <div className="mb-3 flex h-8 overflow-hidden rounded-lg">
-                <div className="bg-emerald-500" style={{ width: "45%" }} />
-                <div className="bg-amber-400" style={{ width: "30%" }} />
-                <div className="bg-red-500" style={{ width: "25%" }} />
-              </div>
-
-              {/* Legend */}
-              <div className="flex gap-4 text-xs">
-                <div className="flex items-center gap-1.5">
-                  <div className="h-2.5 w-2.5 rounded-sm bg-emerald-500" />
-                  <span className="text-gray-600">Betaald</span>
+          <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+            {BENEFITS.map((benefit) => {
+              const Icon = benefit.icon;
+              return (
+                <div
+                  key={benefit.title}
+                  className="rounded-[20px] border border-[#193E64]/[0.06] bg-white px-6 py-7 text-center shadow-[0_10px_30px_rgba(31,58,88,0.07),0_2px_6px_rgba(31,58,88,0.025)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_38px_rgba(31,58,88,0.10),0_3px_8px_rgba(31,58,88,0.04)]"
+                >
+                  <div
+                    className="mx-auto mb-4 flex h-[52px] w-[52px] items-center justify-center rounded-full text-white"
+                    style={{
+                      background: "linear-gradient(135deg, #29AAFF, #27D5B1)",
+                    }}
+                  >
+                    <Icon className="h-6 w-6" aria-hidden="true" strokeWidth={2} />
+                  </div>
+                  <h3 className="text-[17px] font-bold text-[#17345B]">
+                    {benefit.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm text-[#6D7A8D]">
+                    {benefit.description}
+                  </p>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="h-2.5 w-2.5 rounded-sm bg-amber-400" />
-                  <span className="text-gray-600">In afwachting</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="h-2.5 w-2.5 rounded-sm bg-red-500" />
-                  <span className="text-gray-600">Verlopen</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Section 2: Winst Chart */}
-            <div>
-              <div className="mb-3 flex items-center justify-between">
-                <h4 className="text-sm font-semibold text-gray-700">Winst dit jaar</h4>
-                <span className="text-lg font-bold text-gray-900">€24.580</span>
-              </div>
-
-              {/* Area Chart (Static SVG) */}
-              <div className="relative h-24">
-                <svg viewBox="0 0 300 80" className="h-full w-full" preserveAspectRatio="none">
-                  {/* Grid lines */}
-                  <line x1="0" y1="20" x2="300" y2="20" stroke="#f3f4f6" strokeWidth="1" />
-                  <line x1="0" y1="40" x2="300" y2="40" stroke="#f3f4f6" strokeWidth="1" />
-                  <line x1="0" y1="60" x2="300" y2="60" stroke="#f3f4f6" strokeWidth="1" />
-
-                  {/* Area fill */}
-                  <path
-                    d="M0,60 Q30,55 60,50 T120,35 T180,25 T240,20 T300,15 L300,80 L0,80 Z"
-                    fill="url(#areaGradient)"
-                  />
-
-                  {/* Line */}
-                  <path
-                    d="M0,60 Q30,55 60,50 T120,35 T180,25 T240,20 T300,15"
-                    fill="none"
-                    stroke="#10b981"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-
-                  {/* Gradient definition */}
-                  <defs>
-                    <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#10b981" stopOpacity="0.05" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-
-                {/* Month labels */}
-                <div className="absolute -bottom-5 left-0 right-0 flex justify-between text-[10px] text-gray-400">
-                  <span>Jan</span>
-                  <span>Mar</span>
-                  <span>Jun</span>
-                  <span>Sep</span>
-                  <span>Dec</span>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-// =============================================================================
-// SOCIAL PROOF STRIP
-// =============================================================================
-function SocialProofStrip() {
-  const ratings = [
-    { score: "5.0", label: "Google", reviews: "28 reviews" },
-    { score: "4.9", label: "Trustpilot", reviews: "45 reviews" },
-    { score: "5.0", label: "Facebook", reviews: "19 reviews" },
-    { score: "5.0", label: "Klanten", reviews: "50+ reviews" },
-  ];
-
-  return (
-    <div className="relative z-10 mt-16">
-      {/* Title */}
-      <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-        Klanten bevelen Administratiekantoor DDP aan
-      </p>
-
-      {/* Rating Cards */}
-      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {ratings.map((rating) => (
-          <div
-            key={rating.label}
-            className="rounded-2xl border border-white/10 bg-white/10 px-6 py-5 text-center backdrop-blur-md transition-all hover:bg-white/15"
-          >
-            {/* Score + label */}
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-xl font-bold text-white">{rating.score}</span>
-              <span className="text-sm font-medium text-white/70">Uitstekend</span>
-            </div>
-
-            {/* Stars */}
-            <div className="mt-2 flex justify-center gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="h-4 w-4 fill-amber-400 text-amber-400"
-                />
-              ))}
-            </div>
-
-            {/* Source + reviews */}
-            <p className="mt-2 text-xs font-medium text-white/70">{rating.label}</p>
-            <p className="text-xs text-white/50">{rating.reviews}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// =============================================================================
-// CURVE - Alleen links gebogen, rechts vlak (zoals de schets)
-// =============================================================================
-function FreshBooksCurve() {
-  return (
-    <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
-      <svg
-        viewBox="0 0 1440 200"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="relative block h-[100px] w-full sm:h-[150px] md:h-[200px]"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0 200 L0 200 Q0 0 400 0 L1440 0 L1440 200 Z"
-          fill="white"
-        />
-      </svg>
-    </div>
+    </section>
   );
 }
 
@@ -324,57 +259,118 @@ function FreshBooksCurve() {
 // =============================================================================
 export function HeroSection() {
   return (
-    <section className="relative min-h-[820px] overflow-hidden bg-gradient-to-b from-[#0B3772] via-[#0A2F66] to-[#082A5B]">
-      {/* Header */}
-      <HeroHeader />
+    <>
+      <section className="relative min-h-[560px] overflow-hidden bg-[#0F2F4F] md:min-h-[800px]">
+        {/* Achtergrondfoto: laptop, jaarrekening, calculator rechts in beeld */}
+        <Image
+          src="/4533a709-6886-4af7-accd-7f16fe6b8b67.png"
+          alt=""
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover object-[68%_center] md:object-[62%_center]"
+        />
 
-      {/* Main Hero Content */}
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pt-12 lg:px-8 lg:pt-16">
-        {/* Grid: links tekst, rechts mockup */}
-        <div className="grid grid-cols-12 items-start gap-10 lg:gap-14">
-          {/* Left Column - Text Content */}
-          <div className="col-span-12 lg:col-span-6">
-            {/* H1 - Grote titel */}
-            <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-6xl xl:text-7xl">
-              Boekhouding die de moeilijke kant makkelijk maakt
+        {/* Blauwe gradient-overlay: links sterk, rechts vrijwel transparant (desktop) */}
+        <div
+          className="absolute inset-0 hidden md:block"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(11,55,97,0.96) 0%, rgba(19,66,108,0.90) 20%, rgba(34,78,119,0.70) 40%, rgba(41,76,110,0.38) 58%, rgba(30,55,80,0.12) 75%, rgba(15,30,45,0.02) 100%)",
+          }}
+        />
+        {/* Sterkere overlay op mobile voor leesbaarheid */}
+        <div
+          className="absolute inset-0 md:hidden"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(12,45,80,0.96) 0%, rgba(20,60,100,0.83) 55%, rgba(20,60,100,0.50) 100%)",
+          }}
+        />
+        {/* Heel subtiele verticale gradient zodat het onderste deel rustiger wordt */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-44"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(15,47,79,0) 0%, rgba(15,47,79,0.16) 100%)",
+          }}
+        />
+
+        {/* Header */}
+        <HeroHeader />
+
+        {/* Hero Content */}
+        <div className="relative z-10 mx-auto w-full max-w-[1320px] px-6 pt-32 pb-40 sm:px-10 md:pt-40 md:pb-60 lg:px-16 lg:pt-44">
+          <div className="max-w-[700px]">
+            {/* Headline */}
+            <h1
+              className="animate-fade-in-up text-[42px] font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-[52px] lg:text-[64px]"
+              style={{ animationFillMode: "both" }}
+            >
+              <span className="bg-gradient-to-r from-[#30A9FF] to-[#29D4B8] bg-clip-text text-transparent">
+                Boekhouding
+              </span>{" "}
+              die de
+              <br className="hidden sm:block" /> moeilijke kant
+              <br className="hidden sm:block" />{" "}
+              <span className="bg-gradient-to-r from-[#30A9FF] to-[#29D4B8] bg-clip-text text-transparent">
+                makkelijk
+              </span>{" "}
+              maakt
             </h1>
 
             {/* Subtekst */}
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/70">
-              Voor zzp&apos;ers en eenmanszaken. Van boekhouding en BTW-aangifte tot jaarcijfers en advies — duidelijk en op tijd.
+            <p
+              className="animate-fade-in-up mt-7 max-w-[540px] text-[17px] leading-[1.7] text-white/[0.82] lg:text-[18px]"
+              style={{ animationDelay: "0.15s", animationFillMode: "both" }}
+            >
+              Voor zzp&apos;ers en eenmanszaken. Van boekhouding en BTW-aangifte
+              tot jaarcijfers en advies — duidelijk en op tijd.
             </p>
 
-            {/* CTA Row */}
-            <div className="mt-8 flex items-center gap-6">
-              {/* Primary Button */}
+            {/* CTA-rij */}
+            <div
+              className="animate-fade-in-up mt-8 flex flex-col gap-6 sm:flex-row sm:items-center"
+              style={{ animationDelay: "0.3s", animationFillMode: "both" }}
+            >
               <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-3.5 font-semibold text-white shadow-lg transition-all hover:bg-emerald-400"
+                href="#contact"
+                className="group inline-flex h-[56px] items-center justify-center gap-2 self-start rounded-full px-7 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-[1px] hover:brightness-105"
+                style={{
+                  background: "linear-gradient(90deg, #29A8FF 0%, #27D3B2 100%)",
+                  boxShadow: "0 10px 30px rgba(26, 133, 220, 0.22)",
+                }}
               >
                 Offerte aanvragen
-                <ChevronRight className="ml-2 h-4 w-4" />
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </Link>
 
-              {/* Tekstblok naast knop */}
-              <div className="hidden text-xs leading-4 sm:block">
-                <p className="font-semibold text-white/80">Binnen 1 werkdag reactie</p>
-                <p className="text-white/60">Vanaf €100 per maand</p>
+              <div className="flex items-center gap-5">
+                <span
+                  className="hidden h-10 w-px bg-white/25 sm:block"
+                  aria-hidden="true"
+                />
+                <div className="text-sm leading-5">
+                  <p className="font-semibold text-white/90">
+                    Gratis kennismakingsgesprek
+                  </p>
+                  <p className="text-white/60">
+                    Vrijblijvend &amp; zonder verplichtingen
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-
-          {/* Right Column - Dashboard Mockup */}
-          <div className="col-span-12 flex justify-center lg:col-span-6 lg:justify-end">
-            <DashboardMockup />
-          </div>
         </div>
 
-        {/* Social Proof Strip */}
-        <SocialProofStrip />
-      </div>
+        <HeroWave />
+      </section>
 
-      <FreshBooksCurve />
-      <div className="h-[200px]" />
-    </section>
+      <BenefitCards />
+    </>
   );
 }

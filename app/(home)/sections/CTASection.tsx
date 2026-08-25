@@ -13,7 +13,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 export function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-primary py-20 md:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#0B3772] via-[#0A4488] to-[#082A5B] py-20 md:py-28">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute top-10 right-10 h-32 w-32 rounded-full bg-white/5 animate-float" />
@@ -21,6 +21,8 @@ export function CTASection() {
           className="absolute bottom-10 left-10 h-24 w-24 rounded-full bg-white/5 animate-float"
           style={{ animationDelay: "1.5s" }}
         />
+        <div className="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-gradient-to-br from-sky-400/15 to-emerald-400/10 blur-3xl" />
+        <div className="absolute -bottom-24 right-1/4 h-72 w-72 rounded-full bg-gradient-to-br from-emerald-400/15 to-sky-400/10 blur-3xl" />
       </div>
 
       <div className="container relative text-center">
@@ -32,7 +34,7 @@ export function CTASection() {
         </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button asChild variant="hero" size="xl" className="group glow-accent">
-            <Link href="/contact">
+            <Link href="#contact">
               Neem contact op
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>

@@ -62,7 +62,10 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
+    /* Zachte sky-gradient als basis, passend bij de sectie-achtergronden */
+    background: linear-gradient(180deg, hsl(204 100% 97%) 0%, hsl(0 0% 100%) 45%, hsl(210 100% 96%) 100%);
+    background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight text-foreground;
@@ -188,8 +191,58 @@
   100% { background-position: 200% 0; }
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3D Perspective for device stack */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Radial gradient for glow effects */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Hide scrollbar for swipeable cards */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fade-in-up,
+  .animate-pulse-glow,
+  .animate-bounce-in {
+    animation: none;
+  }
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 :focus-visible {

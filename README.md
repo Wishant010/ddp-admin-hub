@@ -1,6 +1,6 @@
-# Administratiekantoor DDP
+# Administratiekantoor DRFA
 
-Website voor Administratiekantoor DDP - persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers.
+Website voor Administratiekantoor DRFA - persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers.
 
 ## Technologieën
 

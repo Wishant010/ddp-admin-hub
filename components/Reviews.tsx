@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import type { Review } from "@/lib/constants";
 
 // Local storage key
-const REVIEWS_STORAGE_KEY = "ddp_reviews";
+const REVIEWS_STORAGE_KEY = "drfa_reviews";
 
 // Helper to get reviews from localStorage
 function getStoredReviews(): Review[] {
@@ -266,7 +266,7 @@ export function ReviewForm() {
         </label>
         <Textarea
           id="review-text"
-          placeholder="Deel je ervaring met Administratiekantoor DDP..."
+          placeholder="Deel je ervaring met Administratiekantoor DRFA..."
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={4}
@@ -297,7 +297,7 @@ export function AdminReviews() {
   const { toast } = useToast();
 
   // Simple password check (in real app, use proper auth)
-  const ADMIN_PASSWORD = "ddp2024";
+  const ADMIN_PASSWORD = "drfa2024";
 
   useEffect(() => {
     if (isAuthenticated) {
