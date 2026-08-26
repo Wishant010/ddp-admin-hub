@@ -7,7 +7,6 @@ import {
   AboutPreviewSection,
   ReviewsSection,
   ContactSection,
-  CTASection,
 } from "./(home)/sections";
 
 export default function Home() {
@@ -20,14 +19,15 @@ export default function Home() {
       <div id="pakketten" className="scroll-mt-20">
         <PackagesSection />
       </div>
-      <WhyChooseUsSection />
+      <div id="aanpak" className="scroll-mt-20">
+        <WhyChooseUsSection />
+      </div>
       <div id="reviews" className="scroll-mt-20">
         <ReviewsSection />
       </div>
       <div id="contact" className="scroll-mt-20">
         <ContactSection />
       </div>
-      <CTASection />
     </div>
   );
 }

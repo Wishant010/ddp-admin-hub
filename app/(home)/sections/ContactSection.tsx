@@ -2,16 +2,17 @@
 
 import { ContactForm, ContactCards } from "@/components/ContactForm";
 import { CONTACT } from "@/lib/constants";
+import { useT } from "@/lib/i18n";
 
 export function ContactSection() {
+  const t = useT();
+
   return (
-    <section className="bg-gradient-to-b from-blue-50 via-sky-50 to-sky-100 py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24">
       <div className="container">
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Contact</h2>
-          <p className="text-lg text-muted-foreground">
-            Vragen of direct aan de slag? Stuur een bericht en we reageren binnen 24 uur.
-          </p>
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">{t.contact.title}</h2>
+          <p className="text-lg text-muted-foreground">{t.contact.subtitle}</p>
         </div>
 
         <div className="mb-12">
@@ -21,7 +22,7 @@ export function ContactSection() {
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Form */}
           <div>
-            <h3 className="mb-6 text-2xl font-bold">Stuur een bericht</h3>
+            <h3 className="mb-6 text-2xl font-bold">{t.contact.formTitle}</h3>
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm md:p-8">
               <ContactForm />
             </div>
@@ -29,7 +30,7 @@ export function ContactSection() {
 
           {/* Map & Info */}
           <div>
-            <h3 className="mb-6 text-2xl font-bold">Locatie</h3>
+            <h3 className="mb-6 text-2xl font-bold">{t.contact.locationTitle}</h3>
             <div className="space-y-6">
               <div className="aspect-video overflow-hidden rounded-xl border border-border bg-muted">
                 <iframe
@@ -40,23 +41,23 @@ export function ContactSection() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Locatie Administratiekantoor DRFA"
+                  title={t.contact.mapTitle}
                 />
               </div>
 
               <div className="rounded-xl border border-border bg-card p-6">
-                <h4 className="mb-4 font-semibold">Bedrijfsgegevens</h4>
+                <h4 className="mb-4 font-semibold">{t.contact.businessInfo}</h4>
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Bedrijfsnaam</dt>
-                    <dd>Administratiekantoor DRFA</dd>
+                    <dt className="text-muted-foreground">{t.contact.companyNameLabel}</dt>
+                    <dd>{t.header.companyFull}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">KVK-nummer</dt>
+                    <dt className="text-muted-foreground">{t.contact.kvkLabel}</dt>
                     <dd>{CONTACT.kvk}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Adres</dt>
+                    <dt className="text-muted-foreground">{t.contact.addressLabel}</dt>
                     <dd className="text-right">
                       {CONTACT.address}
                       <br />
@@ -67,19 +68,19 @@ export function ContactSection() {
               </div>
 
               <div className="rounded-xl border border-border bg-card p-6">
-                <h4 className="mb-4 font-semibold">Bereikbaarheid</h4>
+                <h4 className="mb-4 font-semibold">{t.contact.availability}</h4>
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Maandag - Vrijdag</dt>
+                    <dt className="text-muted-foreground">{t.contact.monFri}</dt>
                     <dd>9:00 - 17:00</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Weekend</dt>
-                    <dd>Gesloten</dd>
+                    <dt className="text-muted-foreground">{t.contact.weekend}</dt>
+                    <dd>{t.contact.closed}</dd>
                   </div>
                 </dl>
                 <p className="mt-4 text-xs text-muted-foreground">
-                  Buiten kantoortijden kun je altijd een bericht achterlaten via WhatsApp of e-mail.
+                  {t.contact.outsideHours}
                 </p>
               </div>
             </div>

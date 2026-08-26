@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { CONTACT, SOCIALS } from "@/lib/constants";
+import { useT } from "@/lib/i18n";
 
 // WhatsApp Icon
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -17,27 +18,32 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 // Contact Info Cards
 export function ContactCards() {
+  const t = useT();
+
   const cards = [
     {
       icon: Phone,
-      title: "Bel ons",
+      title: t.contact.cards.call,
       value: CONTACT.phoneDisplay,
       href: `tel:${CONTACT.phone}`,
-      description: "Ma-Vr, 9:00 - 17:00",
+      description: t.contact.cards.callDesc,
+      external: false,
     },
     {
       icon: Mail,
-      title: "E-mail",
+      title: t.contact.cards.email,
       value: CONTACT.email,
       href: `mailto:${CONTACT.email}`,
-      description: "Reactie binnen 24 uur",
+      description: t.contact.cards.emailDesc,
+      external: false,
     },
     {
       icon: MapPin,
-      title: "Adres",
+      title: t.contact.cards.address,
       value: CONTACT.address,
       href: `https://maps.google.com/?q=${encodeURIComponent(`${CONTACT.address}, ${CONTACT.postalCity}`)}`,
       description: CONTACT.postalCity,
+      external: true,
     },
   ];
 
@@ -47,8 +53,8 @@ export function ContactCards() {
         <a
           key={card.title}
           href={card.href}
-          target={card.title === "Adres" ? "_blank" : undefined}
-          rel={card.title === "Adres" ? "noopener noreferrer" : undefined}
+          target={card.external ? "_blank" : undefined}
+          rel={card.external ? "noopener noreferrer" : undefined}
           className="group rounded-xl border border-border bg-card p-6 text-center transition-all hover:border-primary/50 hover:shadow-lg animate-slide-up"
           style={{ animationDelay: `${index * 100}ms` }}
         >
@@ -75,6 +81,7 @@ export function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const t = useT();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -89,7 +96,7 @@ export function ContactForm() {
     // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
-        title: "Vul alle verplichte velden in",
+        title: t.contact.form.toastRequired,
         variant: "destructive",
       });
       return;
@@ -99,7 +106,7 @@ export function ContactForm() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast({
-        title: "Ongeldig e-mailadres",
+        title: t.contact.form.toastInvalidEmail,
         variant: "destructive",
       });
       return;
@@ -110,8 +117,8 @@ export function ContactForm() {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Bericht verzonden!",
-        description: "We nemen zo snel mogelijk contact met je op.",
+        title: t.contact.form.toastSent,
+        description: t.contact.form.toastSentDesc,
       });
       setFormData({
         name: "",
@@ -129,13 +136,13 @@ export function ContactForm() {
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-medium">
-            Naam *
+            {t.contact.form.nameLabel}
           </label>
           <Input
             id="name"
             name="name"
             type="text"
-            placeholder="Je naam"
+            placeholder={t.contact.form.namePlaceholder}
             value={formData.name}
             onChange={handleChange}
             required
@@ -143,13 +150,13 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="email" className="mb-2 block text-sm font-medium">
-            E-mail *
+            {t.contact.form.emailLabel}
           </label>
           <Input
             id="email"
             name="email"
             type="email"
-            placeholder="je@email.nl"
+            placeholder={t.contact.form.emailPlaceholder}
             value={formData.email}
             onChange={handleChange}
             required
@@ -160,26 +167,26 @@ export function ContactForm() {
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <label htmlFor="phone" className="mb-2 block text-sm font-medium">
-            Telefoon
+            {t.contact.form.phoneLabel}
           </label>
           <Input
             id="phone"
             name="phone"
             type="tel"
-            placeholder="06 12345678"
+            placeholder={t.contact.form.phonePlaceholder}
             value={formData.phone}
             onChange={handleChange}
           />
         </div>
         <div>
           <label htmlFor="subject" className="mb-2 block text-sm font-medium">
-            Onderwerp
+            {t.contact.form.subjectLabel}
           </label>
           <Input
             id="subject"
             name="subject"
             type="text"
-            placeholder="Waar gaat het over?"
+            placeholder={t.contact.form.subjectPlaceholder}
             value={formData.subject}
             onChange={handleChange}
           />
@@ -188,12 +195,12 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="message" className="mb-2 block text-sm font-medium">
-          Bericht *
+          {t.contact.form.messageLabel}
         </label>
         <Textarea
           id="message"
           name="message"
-          placeholder="Vertel ons hoe we je kunnen helpen..."
+          placeholder={t.contact.form.messagePlaceholder}
           value={formData.message}
           onChange={handleChange}
           rows={5}
@@ -204,22 +211,22 @@ export function ContactForm() {
       <div className="flex flex-col gap-4 sm:flex-row">
         <Button type="submit" size="lg" disabled={isSubmitting} className="flex-1">
           {isSubmitting ? (
-            "Verzenden..."
+            t.contact.form.sending
           ) : (
             <>
               <Send className="h-4 w-4" />
-              Verstuur bericht
+              {t.contact.form.send}
             </>
           )}
         </Button>
         <Button asChild variant="whatsapp" size="lg" className="flex-1">
           <a
-            href={SOCIALS.whatsappUrl("Hallo! Ik wil graag meer informatie over jullie diensten.")}
+            href={SOCIALS.whatsappUrl(t.contact.form.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
           >
             <WhatsAppIcon className="h-5 w-5" />
-            Via WhatsApp
+            {t.contact.form.whatsapp}
           </a>
         </Button>
       </div>

@@ -1,0 +1,360 @@
+- generic [active] [ref=f2e1]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=f2e2]:
+    - main [ref=f2e3]:
+      - generic [ref=f2e4]:
+        - generic [ref=f2e5]:
+          - generic [ref=f2e10]:
+            - link "DRFA Logo Administratiekantoor DRFA" [ref=f2e11] [cursor=pointer]:
+              - /url: "#top"
+              - img "DRFA Logo" [ref=f2e12]
+              - generic [ref=f2e13]: Administratiekantoor DRFA
+            - navigation [ref=f2e14]:
+              - link "Home" [ref=f2e15] [cursor=pointer]:
+                - /url: "#top"
+              - link "Pakketten" [ref=f2e16] [cursor=pointer]:
+                - /url: "#pakketten"
+              - link "Over ons" [ref=f2e17] [cursor=pointer]:
+                - /url: "#over-ons"
+              - link "Reviews" [ref=f2e18] [cursor=pointer]:
+                - /url: "#reviews"
+              - link "Contact" [ref=f2e19] [cursor=pointer]:
+                - /url: "#contact"
+            - generic [ref=f2e20]:
+              - link "Bekijk pakketten" [ref=f2e21] [cursor=pointer]:
+                - /url: "#pakketten"
+              - link "Offerte aanvragen" [ref=f2e22] [cursor=pointer]:
+                - /url: "#contact"
+          - generic [ref=f2e24]:
+            - heading "Boekhouding die de moeilijke kant makkelijk maakt" [level=1] [ref=f2e25]
+            - paragraph [ref=f2e26]: Voor zzp'ers en eenmanszaken. Van boekhouding en BTW-aangifte tot jaarcijfers en advies, duidelijk en op tijd.
+            - generic [ref=f2e27]:
+              - link "Offerte aanvragen" [ref=f2e28] [cursor=pointer]:
+                - /url: "#contact"
+              - generic [ref=f2e33]:
+                - paragraph [ref=f2e34]: Gratis kennismakingsgesprek
+                - paragraph [ref=f2e35]: Vrijblijvend & zonder verplichtingen
+        - generic [ref=f2e38]:
+          - paragraph [ref=f2e39]: Waarom ondernemers kiezen voor DRFA
+          - generic [ref=f2e40]:
+            - generic [ref=f2e41]:
+              - heading "Snelle reactie" [level=3] [ref=f2e46]
+              - paragraph [ref=f2e47]: Binnen 24 uur antwoord
+            - generic [ref=f2e48]:
+              - heading "Betrouwbaar" [level=3] [ref=f2e53]
+              - paragraph [ref=f2e54]: Transparant & eerlijk
+            - generic [ref=f2e55]:
+              - heading "Persoonlijk contact" [level=3] [ref=f2e60]
+              - paragraph [ref=f2e61]: Altijd dezelfde adviseur
+            - generic [ref=f2e62]:
+              - heading "Geen verrassingen" [level=3] [ref=f2e66]
+              - paragraph [ref=f2e67]: Vaste maandprijs
+        - generic [ref=f2e70]:
+          - generic [ref=f2e71]:
+            - generic [ref=f2e72]: Over ons
+            - heading "Over DRFA Administratiekantoor" [level=2] [ref=f2e74]
+            - paragraph [ref=f2e75]: Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers. Wij nemen het werk uit handen zodat jij kunt ondernemen.
+          - generic [ref=f2e76]:
+            - generic [ref=f2e77]:
+              - heading "Waarom ondernemers voor ons kiezen" [level=3] [ref=f2e78]
+              - paragraph [ref=f2e79]: Met een nuchtere aanpak en persoonlijke aandacht zorgen we dat jouw administratie altijd op orde is. Geen ingewikkelde termen, gewoon duidelijke communicatie.
+              - generic [ref=f2e80]:
+                - generic [ref=f2e81]: Vaste contactpersoon die je situatie kent
+                - generic [ref=f2e86]: Altijd inzicht in je administratie
+                - generic [ref=f2e91]: Persoonlijk advies zonder ingewikkelde taal
+              - link "Plan een kennismaking" [ref=f2e97] [cursor=pointer]:
+                - /url: "#contact"
+            - generic [ref=f2e100]:
+              - generic [ref=f2e104]:
+                - generic [ref=f2e144]:
+                  - generic [ref=f2e145]: BTW Overzicht
+                  - generic [ref=f2e146]:
+                    - generic [ref=f2e147]: €2.450
+                    - generic [ref=f2e150]: €1.830
+                    - generic [ref=f2e153]: €620
+                  - generic [ref=f2e156]: Ingediend
+                - generic [ref=f2e167]:
+                  - generic [ref=f2e168]: Bonnetje
+                  - generic [ref=f2e169]: verwerkt ✅
+              - generic [ref=f2e173]:
+                - generic [ref=f2e179]:
+                  - generic [ref=f2e180]: 0+
+                  - paragraph [ref=f2e182]: jaar ervaring
+                - generic [ref=f2e188]:
+                  - generic [ref=f2e189]: 0u
+                  - paragraph [ref=f2e191]: responstijd
+                - generic [ref=f2e197]:
+                  - generic [ref=f2e198]: 0%
+                  - paragraph [ref=f2e200]: overzicht
+          - generic [ref=f2e202]:
+            - generic [ref=f2e203]:
+              - heading "Administratie" [level=4] [ref=f2e208]
+              - paragraph [ref=f2e209]: Je volledige boekhouding netjes bijgewerkt en altijd inzichtelijk.
+              - button "Meer informatie" [ref=f2e210] [cursor=pointer]
+            - generic [ref=f2e213]:
+              - heading "BTW-aangifte" [level=4] [ref=f2e219]
+              - paragraph [ref=f2e220]: Elke kwartaalaangifte correct en op tijd ingediend.
+              - button "Meer informatie" [ref=f2e221] [cursor=pointer]
+            - generic [ref=f2e224]:
+              - heading "Jaarcijfers" [level=4] [ref=f2e228]
+              - paragraph [ref=f2e229]: Heldere jaarrekening en aangifte inkomstenbelasting.
+              - button "Meer informatie" [ref=f2e230] [cursor=pointer]
+            - generic [ref=f2e233]:
+              - heading "Advies" [level=4] [ref=f2e237]
+              - paragraph [ref=f2e238]: Persoonlijk advies zonder ingewikkelde taal.
+              - button "Meer informatie" [ref=f2e239] [cursor=pointer]
+        - generic [ref=f2e247]:
+          - generic [ref=f2e248]:
+            - heading "Onze pakketten" [level=2] [ref=f2e249]
+            - paragraph [ref=f2e250]: Kies het pakket dat bij jouw situatie past. Upgraden kan altijd.
+          - generic [ref=f2e251]:
+            - generic [ref=f2e253]:
+              - heading "Basis" [level=3] [ref=f2e258]
+              - paragraph [ref=f2e259]: Perfect voor starters met weinig transacties
+              - generic [ref=f2e261]: €100
+              - generic [ref=f2e262]: per maand
+              - list [ref=f2e263]:
+                - listitem [ref=f2e264]:
+                  - generic [ref=f2e268]: Tot 30 boekingen per maand
+                - listitem [ref=f2e269]:
+                  - generic [ref=f2e273]: Koppeling boekhoudsoftware
+                - listitem [ref=f2e274]:
+                  - generic [ref=f2e278]: Kwartaal-BTW-aangifte
+                - listitem [ref=f2e279]:
+                  - generic [ref=f2e283]: Jaarrekening in Excel / PDF
+              - link "Kies Basis" [ref=f2e285] [cursor=pointer]:
+                - /url: "#contact"
+            - generic [ref=f2e288]:
+              - generic [ref=f2e289]: Meest gekozen
+              - generic [ref=f2e291]:
+                - heading "Compleet" [level=3] [ref=f2e297]
+                - paragraph [ref=f2e298]: De beste keuze voor groeiende ondernemers
+                - generic [ref=f2e300]: €150
+                - generic [ref=f2e301]: per maand
+                - list [ref=f2e302]:
+                  - listitem [ref=f2e303]:
+                    - generic [ref=f2e307]: Alles uit Basis
+                  - listitem [ref=f2e308]:
+                    - generic [ref=f2e312]: Tot 100 boekingen per maand
+                  - listitem [ref=f2e313]:
+                    - generic [ref=f2e317]: Aangifte inkomstenbelasting
+                  - listitem [ref=f2e318]:
+                    - generic [ref=f2e322]: Kwartaalrapportage
+                  - listitem [ref=f2e323]:
+                    - generic [ref=f2e327]: Beperkt advies (max. 1 uur per kwartaal)
+                - link "Kies Compleet" [ref=f2e329] [cursor=pointer]:
+                  - /url: "#contact"
+            - generic [ref=f2e333]:
+              - heading "Premium" [level=3] [ref=f2e337]
+              - paragraph [ref=f2e338]: Volledige ontzorging voor ambitieuze ondernemers
+              - generic [ref=f2e340]: €250
+              - generic [ref=f2e341]: per maand
+              - list [ref=f2e342]:
+                - listitem [ref=f2e343]:
+                  - generic [ref=f2e347]: Alles uit Compleet
+                - listitem [ref=f2e348]:
+                  - generic [ref=f2e352]: Onbeperkt boekingen
+                - listitem [ref=f2e353]:
+                  - generic [ref=f2e357]: Maandelijkse rapportage
+                - listitem [ref=f2e358]:
+                  - generic [ref=f2e362]: Onbeperkt advies per e-mail/telefoon
+                - listitem [ref=f2e363]:
+                  - generic [ref=f2e367]: Hulp bij investeringen, auto van de zaak, etc.
+              - link "Kies Premium" [ref=f2e369] [cursor=pointer]:
+                - /url: "#contact"
+        - generic [ref=f2e376]:
+          - generic [ref=f2e377]:
+            - generic [ref=f2e378]:
+              - heading "Zo starten we samen" [level=2] [ref=f2e379]
+              - paragraph [ref=f2e380]: In 3 duidelijke stappen naar een administratie die goed staat en online inzichtelijk blijft.
+              - paragraph [ref=f2e381]: We beginnen met een korte kennismaking, richten daarna samen je Moneybird-administratie goed in en zorgen dat je boekhouding vanaf dat moment overzichtelijk blijft. Jij houdt online inzicht, wij kijken mee en helpen waar nodig.
+              - generic [ref=f2e382]:
+                - generic [ref=f2e383]: Gratis & vrijblijvend kennismaken
+                - generic [ref=f2e390]: Moneybird samen ingericht
+                - generic [ref=f2e395]: Persoonlijk contact
+              - generic [ref=f2e400]:
+                - link "Plan kennismaking" [ref=f2e401] [cursor=pointer]:
+                  - /url: "#contact"
+                - link "Bekijk pakketten" [ref=f2e404] [cursor=pointer]:
+                  - /url: "#pakketten"
+              - paragraph [ref=f2e405]: Werk je al met Moneybird? Geen probleem, dan sluiten we aan op je bestaande administratie.
+            - generic [ref=f2e411]:
+              - generic [ref=f2e414]:
+                - generic [ref=f2e415]: Moneybird administratie
+                - generic [ref=f2e421]:
+                  - generic [ref=f2e422]:
+                    - generic [ref=f2e423]: Overzicht
+                    - generic [ref=f2e424]: Bijgewerkt vandaag
+                  - generic [ref=f2e426]:
+                    - generic [ref=f2e427]: Omzet
+                    - generic [ref=f2e431]: Kosten
+                    - generic [ref=f2e435]: Resultaat
+                  - generic [ref=f2e453]:
+                    - generic [ref=f2e454]: 12 documenten verwerkt
+                    - generic [ref=f2e458]: 3 openstaande facturen
+              - generic [ref=f2e472]:
+                - generic [ref=f2e473]: Bonnetje toegevoegd
+                - generic [ref=f2e474]: Direct in je administratie
+              - generic [ref=f2e479]:
+                - generic [ref=f2e480]: Administratie bijgewerkt
+                - generic [ref=f2e481]: Klaar voor controle
+              - generic [ref=f2e482]: DRFA kijkt mee
+          - generic [ref=f2e491]:
+            - generic [ref=f2e492]:
+              - generic [ref=f2e493]: "01"
+              - heading "Kennismaken" [level=3] [ref=f2e501]
+              - paragraph [ref=f2e502]: We bespreken jouw onderneming
+              - paragraph [ref=f2e503]: We bekijken hoe je administratie nu geregeld is en wat jij nodig hebt.
+            - generic [ref=f2e504]:
+              - generic [ref=f2e505]: "02"
+              - heading "Moneybird inrichten" [level=3] [ref=f2e511]
+              - paragraph [ref=f2e512]: Alles goed ingesteld
+              - paragraph [ref=f2e513]: We zorgen samen dat je administratie goed staat en dat DRFA toegang heeft om met je mee te werken.
+            - generic [ref=f2e514]:
+              - generic [ref=f2e515]: "03"
+              - heading "Samen verder" [level=3] [ref=f2e521]
+              - paragraph [ref=f2e522]: Online inzicht, wij kijken mee
+              - paragraph [ref=f2e523]: Je administratie blijft online beschikbaar. Jij houdt overzicht en DRFA verwerkt, controleert en ondersteunt waar nodig.
+        - generic [ref=f2e526]:
+          - generic [ref=f2e527]:
+            - generic [ref=f2e529]:
+              - button "1 ster" [disabled] [ref=f2e530]
+              - button "2 sterren" [disabled] [ref=f2e533]
+              - button "3 sterren" [disabled] [ref=f2e536]
+              - button "4 sterren" [disabled] [ref=f2e539]
+              - button "5 sterren" [disabled] [ref=f2e542]
+            - heading "Wat klanten zeggen" [level=2] [ref=f2e545]
+            - paragraph [ref=f2e546]: Lees de ervaringen van ondernemers die ons voorgingen.
+          - paragraph [ref=f2e548]: Nog geen reviews. Wees de eerste!
+        - generic [ref=f2e551]:
+          - generic [ref=f2e552]:
+            - heading "Contact" [level=2] [ref=f2e553]
+            - paragraph [ref=f2e554]: Vragen of direct aan de slag? Stuur een bericht en we reageren binnen 24 uur.
+          - generic [ref=f2e556]:
+            - link [ref=f2e557] [cursor=pointer]:
+              - /url: tel:+31 6 54324404
+              - heading "Bel ons" [level=3] [ref=f2e561]
+              - paragraph [ref=f2e562]: 06 5432 4404
+              - paragraph [ref=f2e563]: Ma-Vr, 9:00 - 17:00
+            - link [ref=f2e564] [cursor=pointer]:
+              - /url: mailto:info@admindrfa.nl
+              - heading "E-mail" [level=3] [ref=f2e569]
+              - paragraph [ref=f2e570]: info@admindrfa.nl
+              - paragraph [ref=f2e571]: Reactie binnen 24 uur
+            - link [ref=f2e572] [cursor=pointer]:
+              - /url: https://maps.google.com/?q=Zevenwoudenplantsoen%2011%2C%202036%20NL%20Haarlem
+              - heading "Adres" [level=3] [ref=f2e577]
+              - paragraph [ref=f2e578]: Zevenwoudenplantsoen 11
+              - paragraph [ref=f2e579]: 2036 NL Haarlem
+          - generic [ref=f2e580]:
+            - generic [ref=f2e581]:
+              - heading "Stuur een bericht" [level=3] [ref=f2e582]
+              - generic [ref=f2e584]:
+                - generic [ref=f2e585]:
+                  - generic [ref=f2e586]:
+                    - generic [ref=f2e587]: Naam *
+                    - textbox "Naam *" [ref=f2e588]:
+                      - /placeholder: Je naam
+                  - generic [ref=f2e589]:
+                    - generic [ref=f2e590]: E-mail *
+                    - textbox "E-mail *" [ref=f2e591]:
+                      - /placeholder: je@email.nl
+                - generic [ref=f2e592]:
+                  - generic [ref=f2e593]:
+                    - generic [ref=f2e594]: Telefoon
+                    - textbox "Telefoon" [ref=f2e595]:
+                      - /placeholder: 06 12345678
+                  - generic [ref=f2e596]:
+                    - generic [ref=f2e597]: Onderwerp
+                    - textbox "Onderwerp" [ref=f2e598]:
+                      - /placeholder: Waar gaat het over?
+                - generic [ref=f2e599]:
+                  - generic [ref=f2e600]: Bericht *
+                  - textbox "Bericht *" [ref=f2e601]:
+                    - /placeholder: Vertel ons hoe we je kunnen helpen...
+                - generic [ref=f2e602]:
+                  - button "Verstuur bericht" [ref=f2e603] [cursor=pointer]
+                  - link "Via WhatsApp" [ref=f2e604] [cursor=pointer]:
+                    - /url: https://wa.me/31654324404?text=Hallo!%20Ik%20wil%20graag%20meer%20informatie%20over%20jullie%20diensten.
+            - generic [ref=f2e605]:
+              - heading "Locatie" [level=3] [ref=f2e606]
+              - generic [ref=f2e607]:
+                - iframe [ref=f2e609]
+                - generic [ref=f2e610]:
+                  - heading "Bedrijfsgegevens" [level=4] [ref=f2e611]
+                  - generic [ref=f2e612]:
+                    - generic [ref=f2e613]:
+                      - term [ref=f2e614]: Bedrijfsnaam
+                      - definition [ref=f2e615]: Administratiekantoor DRFA
+                    - generic [ref=f2e616]:
+                      - term [ref=f2e617]: KVK-nummer
+                      - definition [ref=f2e618]: "91593344"
+                    - generic [ref=f2e619]:
+                      - term [ref=f2e620]: Adres
+                      - definition [ref=f2e621]: Zevenwoudenplantsoen 112036 NL Haarlem
+                - generic [ref=f2e622]:
+                  - heading "Bereikbaarheid" [level=4] [ref=f2e623]
+                  - generic [ref=f2e624]:
+                    - generic [ref=f2e625]:
+                      - term [ref=f2e626]: Maandag - Vrijdag
+                      - definition [ref=f2e627]: 9:00 - 17:00
+                    - generic [ref=f2e628]:
+                      - term [ref=f2e629]: Weekend
+                      - definition [ref=f2e630]: Gesloten
+                  - paragraph [ref=f2e631]: Buiten kantoortijden kun je altijd een bericht achterlaten via WhatsApp of e-mail.
+        - generic [ref=f2e638]:
+          - heading "Klaar om te starten?" [level=2] [ref=f2e639]
+          - paragraph [ref=f2e640]: Neem vrijblijvend contact op voor een kennismakingsgesprek. We bespreken graag hoe we jou kunnen helpen.
+          - generic [ref=f2e641]:
+            - link "Neem contact op" [ref=f2e642] [cursor=pointer]:
+              - /url: "#contact"
+            - link "WhatsApp ons" [ref=f2e643] [cursor=pointer]:
+              - /url: https://wa.me/31654324404?text=Hallo!%20Ik%20wil%20graag%20kennismaken.
+    - contentinfo [ref=f2e644]:
+      - generic [ref=f2e645]:
+        - generic [ref=f2e646]:
+          - generic [ref=f2e647]:
+            - link "DRFA Logo Administratiekantoor DRFA" [ref=f2e648] [cursor=pointer]:
+              - /url: /
+              - img "DRFA Logo" [ref=f2e649]
+              - generic [ref=f2e650]: Administratiekantoor DRFA
+            - paragraph [ref=f2e651]: Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers. Geen ingewikkelde termen, gewoon eerlijk advies.
+            - generic [ref=f2e652]:
+              - link "Instagram" [ref=f2e653] [cursor=pointer]:
+                - /url: https://instagram.com/admindrfa
+              - link "WhatsApp" [ref=f2e657] [cursor=pointer]:
+                - /url: https://wa.me/31654324404?text=Hallo!%20Ik%20heb%20een%20vraag%20over%20jullie%20diensten.
+          - generic [ref=f2e660]:
+            - heading "Snelle links" [level=4] [ref=f2e661]
+            - list [ref=f2e662]:
+              - listitem [ref=f2e663]:
+                - link "Home" [ref=f2e664] [cursor=pointer]:
+                  - /url: "#top"
+              - listitem [ref=f2e666]:
+                - link "Pakketten" [ref=f2e667] [cursor=pointer]:
+                  - /url: "#pakketten"
+              - listitem [ref=f2e669]:
+                - link "Over ons" [ref=f2e670] [cursor=pointer]:
+                  - /url: "#over-ons"
+              - listitem [ref=f2e672]:
+                - link "Reviews" [ref=f2e673] [cursor=pointer]:
+                  - /url: "#reviews"
+              - listitem [ref=f2e675]:
+                - link "Contact" [ref=f2e676] [cursor=pointer]:
+                  - /url: "#contact"
+          - generic [ref=f2e678]:
+            - heading "Contact" [level=4] [ref=f2e679]
+            - list [ref=f2e680]:
+              - listitem [ref=f2e681]:
+                - link "06 5432 4404" [ref=f2e684] [cursor=pointer]:
+                  - /url: tel:+31 6 54324404
+              - listitem [ref=f2e685]:
+                - link "info@admindrfa.nl" [ref=f2e689] [cursor=pointer]:
+                  - /url: mailto:info@admindrfa.nl
+        - generic [ref=f2e690]:
+          - paragraph [ref=f2e691]: © 2026 Administratiekantoor DRFA. Alle rechten voorbehouden.
+          - paragraph [ref=f2e692]: "KVK: 91593344"
+    - link "Chat via WhatsApp" [ref=f2e693] [cursor=pointer]:
+      - /url: https://wa.me/31654324404?text=Hallo!%20Ik%20heb%20een%20vraag%20over%20jullie%20diensten.

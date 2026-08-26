@@ -1,13 +1,120 @@
-"use client";
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Layout } from "@/components/Layout";
+import type { Metadata, Viewport } from "next";
+import { Providers } from "@/app/providers";
+import { CONTACT, SOCIALS, SITE_URL } from "@/lib/constants";
 import "@/app/globals.css";
 
-const queryClient = new QueryClient();
+const SITE_NAME = "Administratiekantoor DRFA";
+const SITE_TITLE = "Administratiekantoor DRFA | Boekhouding voor zzp'ers in Haarlem";
+const SITE_DESCRIPTION =
+  "DRFA regelt je boekhouding, BTW-aangifte en jaarcijfers voor een vaste maandprijs. Persoonlijk contact, binnen 24 uur reactie en online inzicht via Moneybird.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "administratiekantoor Haarlem",
+    "boekhouder zzp",
+    "boekhouding Haarlem",
+    "BTW-aangifte",
+    "jaarrekening zzp",
+    "Moneybird boekhouder",
+    "administratie eenmanszaak",
+    "boekhouder vaste prijs",
+  ],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    url: "/",
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "DRFA werkplek met jaarrekening en administratie-overzicht",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: "/favicon.png",
+  },
+  category: "finance",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0B3772",
+};
+
+// Schema.org: AccountingService (LocalBusiness-subtype) voor lokale vindbaarheid
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "@id": `${SITE_URL}/#organisatie`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
+  image: `${SITE_URL}/og-image.jpg`,
+  description: SITE_DESCRIPTION,
+  email: CONTACT.email,
+  telephone: CONTACT.phone.replace(/\s/g, ""),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: CONTACT.address,
+    postalCode: "2036 NL",
+    addressLocality: "Haarlem",
+    addressCountry: "NL",
+  },
+  areaServed: [
+    { "@type": "City", name: "Haarlem" },
+    { "@type": "Country", name: "Nederland" },
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+  ],
+  priceRange: "€€",
+  sameAs: [SOCIALS.instagram],
+  knowsLanguage: ["nl", "en"],
+};
 
 export default function RootLayout({
   children,
@@ -16,32 +123,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Administratiekantoor DRFA</title>
-        <meta name="description" content="Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers." />
-        <meta name="author" content="Administratiekantoor DRFA" />
-
-        {/* Open Graph / Social Media */}
-        <meta property="og:title" content="Administratiekantoor DRFA" />
-        <meta property="og:description" content="Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/logo.png" />
-
-        {/* Favicon */}
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
-        <meta name="theme-color" content="#0B3772" />
-      </head>
       <body>
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <Layout>{children}</Layout>
-          </TooltipProvider>
-        </QueryClientProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

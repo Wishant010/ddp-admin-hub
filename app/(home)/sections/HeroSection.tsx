@@ -13,6 +13,23 @@ import {
   UserRound,
   Check,
 } from "lucide-react";
+import { useLanguage, useT } from "@/lib/i18n";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import SplitText from "@/components/SplitText";
+
+// Gedeelde animatie-instellingen voor de hero-headline (per-letter reveal)
+const HERO_SPLIT_PROPS = {
+  tag: "span",
+  textAlign: "left",
+  splitType: "chars",
+  delay: 35,
+  duration: 0.8,
+  ease: "power3.out",
+  from: { opacity: 0, y: 40 },
+  to: { opacity: 1, y: 0 },
+  threshold: 0,
+  rootMargin: "0px",
+} as const;
 
 // =============================================================================
 // HERO HEADER
@@ -20,6 +37,7 @@ import {
 function HeroHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,18 +49,18 @@ function HeroHeader() {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#top" },
-    { label: "Pakketten", href: "#pakketten" },
-    { label: "Over ons", href: "#over-ons" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Contact", href: "#contact" },
+    { label: t.nav.home, href: "#top" },
+    { label: t.nav.packages, href: "#pakketten" },
+    { label: t.nav.about, href: "#over-ons" },
+    { label: t.nav.reviews, href: "#reviews" },
+    { label: t.nav.contact, href: "#contact" },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#0F2F4F]/85 backdrop-blur-md border-b border-white/10"
+          ? "bg-[#0B3772]/90 backdrop-blur-md border-b border-white/10"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -57,7 +75,7 @@ function HeroHeader() {
             className="h-12 w-12 rounded-full bg-white p-1 shadow-md"
           />
           <span className="hidden text-lg font-semibold tracking-tight text-white xl:text-xl sm:block lg:hidden xl:block">
-            Administratiekantoor DRFA
+            {t.header.companyShort}
           </span>
         </Link>
 
@@ -76,11 +94,12 @@ function HeroHeader() {
 
         {/* Desktop CTA's - Rechts */}
         <div className="hidden items-center gap-3 lg:flex shrink-0">
+          <LanguageToggle variant="dark" />
           <Link
             href="#pakketten"
             className="whitespace-nowrap rounded-full border border-white/35 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10 xl:px-6"
           >
-            Bekijk pakketten
+            {t.header.viewPackages}
           </Link>
           <Link
             href="#contact"
@@ -90,30 +109,34 @@ function HeroHeader() {
               boxShadow: "0 10px 30px rgba(26, 133, 220, 0.22)",
             }}
           >
-            Offerte aanvragen
+            {t.header.requestQuote}
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(true)}
-          className="rounded-lg p-2 text-white transition-colors hover:bg-white/10 lg:hidden"
-          aria-label="Open menu"
-        >
-          <Menu className="h-7 w-7" />
-        </button>
+        {/* Mobile: Language Toggle + Menu Button */}
+        <div className="flex items-center gap-3 lg:hidden">
+          <LanguageToggle variant="dark" />
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="rounded-lg p-2 text-white transition-colors hover:bg-white/10"
+            aria-label={t.header.openMenu}
+          >
+            <Menu className="h-7 w-7" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#0F2F4F] lg:hidden">
+        <div className="fixed inset-0 z-50 bg-[#0B3772] lg:hidden">
           <div className="flex h-full flex-col">
-            {/* Close Button */}
-            <div className="flex justify-end p-6">
+            {/* Language Toggle + Close Button */}
+            <div className="flex items-center justify-between p-6">
+              <LanguageToggle variant="dark" />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-lg p-2 text-white transition-transform hover:rotate-90 duration-300"
-                aria-label="Sluit menu"
+                aria-label={t.header.closeMenu}
               >
                 <X className="h-8 w-8" />
               </button>
@@ -144,14 +167,14 @@ function HeroHeader() {
                   background: "linear-gradient(90deg, #29A8FF 0%, #27D3B2 100%)",
                 }}
               >
-                Offerte aanvragen
+                {t.header.requestQuote}
               </Link>
               <Link
                 href="#pakketten"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full rounded-full border-2 border-white/30 py-4 text-center text-lg font-semibold text-white"
               >
-                Bekijk pakketten
+                {t.header.viewPackages}
               </Link>
             </div>
           </div>
@@ -190,41 +213,22 @@ function HeroWave() {
 // =============================================================================
 // BENEFIT CARDS - verbinden de curve met de volgende witte sectie
 // =============================================================================
-const BENEFITS = [
-  {
-    icon: Clock3,
-    title: "Snelle reactie",
-    description: "Binnen 24 uur antwoord",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Betrouwbaar",
-    description: "Transparant & eerlijk",
-  },
-  {
-    icon: UserRound,
-    title: "Persoonlijk contact",
-    description: "Altijd dezelfde adviseur",
-  },
-  {
-    icon: Check,
-    title: "Geen verrassingen",
-    description: "Vaste maandprijs",
-  },
-] as const;
+const BENEFIT_ICONS = [Clock3, ShieldCheck, UserRound, Check] as const;
 
 function BenefitCards() {
+  const t = useT();
+
   return (
     <section className="relative z-10 bg-white">
       <div className="mx-auto w-full max-w-[1320px] px-6 sm:px-10 lg:px-16">
         <div className="relative pt-7 md:pt-9">
           <p className="text-center text-[12px] font-bold uppercase tracking-[0.18em] text-[#2685E8]">
-            Waarom ondernemers kiezen voor DRFA
+            {t.hero.benefitsKicker}
           </p>
 
           <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
-            {BENEFITS.map((benefit) => {
-              const Icon = benefit.icon;
+            {t.hero.benefits.map((benefit, index) => {
+              const Icon = BENEFIT_ICONS[index] ?? Check;
               return (
                 <div
                   key={benefit.title}
@@ -258,6 +262,9 @@ function BenefitCards() {
 // MAIN HERO SECTION
 // =============================================================================
 export function HeroSection() {
+  const t = useT();
+  const { lang } = useLanguage();
+
   return (
     <>
       <section className="relative min-h-[560px] overflow-hidden bg-[#0F2F4F] md:min-h-[800px]">
@@ -303,21 +310,31 @@ export function HeroSection() {
         {/* Hero Content */}
         <div className="relative z-10 mx-auto w-full max-w-[1320px] px-6 pt-32 pb-40 sm:px-10 md:pt-40 md:pb-60 lg:px-16 lg:pt-44">
           <div className="max-w-[700px]">
-            {/* Headline */}
+            {/* Headline: letters animeren binnen via SplitText (React Bits + GSAP) */}
             <h1
-              className="animate-fade-in-up text-[42px] font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-[52px] lg:text-[64px]"
-              style={{ animationFillMode: "both" }}
+              key={lang}
+              className="text-[42px] font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-[52px] lg:text-[64px]"
             >
-              <span className="bg-gradient-to-r from-[#30A9FF] to-[#29D4B8] bg-clip-text text-transparent">
-                Boekhouding
-              </span>{" "}
-              die de
-              <br className="hidden sm:block" /> moeilijke kant
+              <SplitText
+                {...HERO_SPLIT_PROPS}
+                text={t.hero.h1Grad1}
+                className="hero-grad"
+              />{" "}
+              <SplitText {...HERO_SPLIT_PROPS} text={t.hero.h1After1.trim()} />
               <br className="hidden sm:block" />{" "}
-              <span className="bg-gradient-to-r from-[#30A9FF] to-[#29D4B8] bg-clip-text text-transparent">
-                makkelijk
-              </span>{" "}
-              maakt
+              <SplitText {...HERO_SPLIT_PROPS} text={t.hero.h1Line2} />
+              <br className="hidden sm:block" />{" "}
+              <SplitText
+                {...HERO_SPLIT_PROPS}
+                text={t.hero.h1Grad2}
+                className="hero-grad"
+              />
+              {t.hero.h1End.trim() && (
+                <>
+                  {" "}
+                  <SplitText {...HERO_SPLIT_PROPS} text={t.hero.h1End.trim()} />
+                </>
+              )}
             </h1>
 
             {/* Subtekst */}
@@ -325,8 +342,7 @@ export function HeroSection() {
               className="animate-fade-in-up mt-7 max-w-[540px] text-[17px] leading-[1.7] text-white/[0.82] lg:text-[18px]"
               style={{ animationDelay: "0.15s", animationFillMode: "both" }}
             >
-              Voor zzp&apos;ers en eenmanszaken. Van boekhouding en BTW-aangifte
-              tot jaarcijfers en advies — duidelijk en op tijd.
+              {t.hero.subtitle}
             </p>
 
             {/* CTA-rij */}
@@ -342,7 +358,7 @@ export function HeroSection() {
                   boxShadow: "0 10px 30px rgba(26, 133, 220, 0.22)",
                 }}
               >
-                Offerte aanvragen
+                {t.header.requestQuote}
                 <ArrowRight
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"
@@ -356,11 +372,9 @@ export function HeroSection() {
                 />
                 <div className="text-sm leading-5">
                   <p className="font-semibold text-white/90">
-                    Gratis kennismakingsgesprek
+                    {t.hero.freeIntro}
                   </p>
-                  <p className="text-white/60">
-                    Vrijblijvend &amp; zonder verplichtingen
-                  </p>
+                  <p className="text-white/60">{t.hero.freeIntroSub}</p>
                 </div>
               </div>
             </div>

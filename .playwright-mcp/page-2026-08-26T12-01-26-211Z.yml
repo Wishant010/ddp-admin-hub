@@ -1,0 +1,559 @@
+- generic [active] [ref=e1]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=e2]:
+    - main [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - generic [ref=e9]:
+            - link "DRFA Logo Administratiekantoor DRFA" [ref=e10] [cursor=pointer]:
+              - /url: "#top"
+              - img "DRFA Logo" [ref=e11]
+              - generic [ref=e12]: Administratiekantoor DRFA
+            - navigation [ref=e13]:
+              - link "Home" [ref=e14] [cursor=pointer]:
+                - /url: "#top"
+              - link "Pakketten" [ref=e15] [cursor=pointer]:
+                - /url: "#pakketten"
+              - link "Over ons" [ref=e16] [cursor=pointer]:
+                - /url: "#over-ons"
+              - link "Reviews" [ref=e17] [cursor=pointer]:
+                - /url: "#reviews"
+              - link "Contact" [ref=e18] [cursor=pointer]:
+                - /url: "#contact"
+            - generic [ref=e19]:
+              - link "Bekijk pakketten" [ref=e20] [cursor=pointer]:
+                - /url: "#pakketten"
+              - link "Offerte aanvragen" [ref=e21] [cursor=pointer]:
+                - /url: "#contact"
+          - generic [ref=e23]:
+            - heading "Boekhouding die de moeilijke kant makkelijk maakt" [level=1] [ref=e24]
+            - paragraph [ref=e25]: Voor zzp'ers en eenmanszaken. Van boekhouding en BTW-aangifte tot jaarcijfers en advies, duidelijk en op tijd.
+            - generic [ref=e26]:
+              - link "Offerte aanvragen" [ref=e27] [cursor=pointer]:
+                - /url: "#contact"
+              - generic [ref=e32]:
+                - paragraph [ref=e33]: Gratis kennismakingsgesprek
+                - paragraph [ref=e34]: Vrijblijvend & zonder verplichtingen
+        - generic [ref=e37]:
+          - paragraph [ref=e38]: Waarom ondernemers kiezen voor DRFA
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - heading "Snelle reactie" [level=3] [ref=e45]
+              - paragraph [ref=e46]: Binnen 24 uur antwoord
+            - generic [ref=e47]:
+              - heading "Betrouwbaar" [level=3] [ref=e52]
+              - paragraph [ref=e53]: Transparant & eerlijk
+            - generic [ref=e54]:
+              - heading "Persoonlijk contact" [level=3] [ref=e59]
+              - paragraph [ref=e60]: Altijd dezelfde adviseur
+            - generic [ref=e61]:
+              - heading "Geen verrassingen" [level=3] [ref=e65]
+              - paragraph [ref=e66]: Vaste maandprijs
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: Over DRFA
+              - heading "Persoonlijk waar het telt. Digitaal waar het helpt." [level=2] [ref=e74]: Persoonlijk waar het telt.Digitaal waar het helpt.
+              - paragraph [ref=e75]: DRFA Administratiekantoor ondersteunt zzp'ers en kleine ondernemers met heldere administratie, proactief advies en moderne software. Zodat jij grip krijgt op je cijfers en meer tijd overhoudt voor wat echt belangrijk is.
+              - generic [ref=e76]:
+                - generic [ref=e82]:
+                  - heading "Persoonlijke aandacht" [level=3] [ref=e83]
+                  - paragraph [ref=e84]: Je hebt altijd een vast aanspreekpunt die jouw situatie en onderneming kent.
+                - generic [ref=e89]:
+                  - heading "Snel en proactief" [level=3] [ref=e90]
+                  - paragraph [ref=e91]: We reageren binnen 24 uur en denken vooruit, niet achteraf.
+                - generic [ref=e97]:
+                  - heading "Transparant en duidelijk" [level=3] [ref=e98]
+                  - paragraph [ref=e99]: Geen verrassingen, vaste prijzen en heldere communicatie.
+              - link "Meer over onze aanpak" [ref=e101] [cursor=pointer]:
+                - /url: "#aanpak"
+            - generic [ref=e104]:
+              - img "DRFA werkplek met jaarrekening, administratie-overzicht en DRFA-documentmap" [ref=e106]
+              - generic [ref=e107]:
+                - generic [ref=e108]: 10+
+                - paragraph [ref=e110]: jaar ervaring in financiële administratie en advies.
+                - paragraph [ref=e111]: Betrouwbaar. Betrokken. Bereikbaar.
+          - generic [ref=e113]:
+            - generic [ref=e119]:
+              - heading "Binnen 24 uur reactie" [level=4] [ref=e120]
+              - paragraph [ref=e121]: Snel antwoord op jouw vragen.
+            - generic [ref=e127]:
+              - heading "Vast aanspreekpunt" [level=4] [ref=e128]
+              - paragraph [ref=e129]: Altijd contact met iemand die je kent.
+            - generic [ref=e135]:
+              - heading "Vaste maandprijs" [level=4] [ref=e136]
+              - paragraph [ref=e137]: Duidelijke afspraken, geen verrassingen.
+            - generic [ref=e142]:
+              - heading "Persoonlijk advies" [level=4] [ref=e143]
+              - paragraph [ref=e144]: Meedenken en vooruitkijken voor jouw bedrijf.
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - heading "Onze pakketten" [level=2] [ref=e152]
+            - paragraph [ref=e153]: Kies het pakket dat bij jouw situatie past. Upgraden kan altijd.
+          - generic [ref=e154]:
+            - generic [ref=e156]:
+              - heading "Basis" [level=3] [ref=e161]
+              - paragraph [ref=e162]: Perfect voor starters met weinig transacties
+              - generic [ref=e164]: €100
+              - generic [ref=e165]: per maand
+              - list [ref=e166]:
+                - listitem [ref=e167]:
+                  - generic [ref=e171]: Tot 30 boekingen per maand
+                - listitem [ref=e172]:
+                  - generic [ref=e176]: Koppeling boekhoudsoftware
+                - listitem [ref=e177]:
+                  - generic [ref=e181]: Kwartaal-BTW-aangifte
+                - listitem [ref=e182]:
+                  - generic [ref=e186]: Jaarrekening in Excel / PDF
+              - link "Kies Basis" [ref=e188] [cursor=pointer]:
+                - /url: "#contact"
+            - generic [ref=e191]:
+              - generic [ref=e192]: Meest gekozen
+              - generic [ref=e194]:
+                - heading "Compleet" [level=3] [ref=e200]
+                - paragraph [ref=e201]: De beste keuze voor groeiende ondernemers
+                - generic [ref=e203]: €150
+                - generic [ref=e204]: per maand
+                - list [ref=e205]:
+                  - listitem [ref=e206]:
+                    - generic [ref=e210]: Alles uit Basis
+                  - listitem [ref=e211]:
+                    - generic [ref=e215]: Tot 100 boekingen per maand
+                  - listitem [ref=e216]:
+                    - generic [ref=e220]: Aangifte inkomstenbelasting
+                  - listitem [ref=e221]:
+                    - generic [ref=e225]: Kwartaalrapportage
+                  - listitem [ref=e226]:
+                    - generic [ref=e230]: Beperkt advies (max. 1 uur per kwartaal)
+                - link "Kies Compleet" [ref=e232] [cursor=pointer]:
+                  - /url: "#contact"
+            - generic [ref=e236]:
+              - heading "Premium" [level=3] [ref=e240]
+              - paragraph [ref=e241]: Volledige ontzorging voor ambitieuze ondernemers
+              - generic [ref=e243]: €250
+              - generic [ref=e244]: per maand
+              - list [ref=e245]:
+                - listitem [ref=e246]:
+                  - generic [ref=e250]: Alles uit Compleet
+                - listitem [ref=e251]:
+                  - generic [ref=e255]: Onbeperkt boekingen
+                - listitem [ref=e256]:
+                  - generic [ref=e260]: Maandelijkse rapportage
+                - listitem [ref=e261]:
+                  - generic [ref=e265]: Onbeperkt advies per e-mail/telefoon
+                - listitem [ref=e266]:
+                  - generic [ref=e270]: Hulp bij investeringen, auto van de zaak, etc.
+              - link "Kies Premium" [ref=e272] [cursor=pointer]:
+                - /url: "#contact"
+        - generic [ref=e280]:
+          - generic [ref=e281]:
+            - generic [ref=e282]:
+              - heading "Zo starten we samen" [level=2] [ref=e283]
+              - paragraph [ref=e284]: In 3 duidelijke stappen naar een administratie die goed staat en online inzichtelijk blijft.
+              - paragraph [ref=e285]: We beginnen met een korte kennismaking, richten daarna samen je Moneybird-administratie goed in en zorgen dat je boekhouding vanaf dat moment overzichtelijk blijft. Jij houdt online inzicht, wij kijken mee en helpen waar nodig.
+              - generic [ref=e286]:
+                - generic [ref=e287]: Gratis & vrijblijvend kennismaken
+                - generic [ref=e294]: Moneybird samen ingericht
+                - generic [ref=e299]: Persoonlijk contact
+              - generic [ref=e304]:
+                - link "Plan kennismaking" [ref=e305] [cursor=pointer]:
+                  - /url: "#contact"
+                - link "Bekijk pakketten" [ref=e308] [cursor=pointer]:
+                  - /url: "#pakketten"
+              - paragraph [ref=e309]: Werk je al met Moneybird? Geen probleem, dan sluiten we aan op je bestaande administratie.
+            - generic [ref=e315]:
+              - generic [ref=e318]:
+                - generic [ref=e319]: Moneybird administratie
+                - generic [ref=e325]:
+                  - generic [ref=e326]:
+                    - generic [ref=e327]: Overzicht
+                    - generic [ref=e328]: Bijgewerkt vandaag
+                  - generic [ref=e330]:
+                    - generic [ref=e331]: Omzet
+                    - generic [ref=e335]: Kosten
+                    - generic [ref=e339]: Resultaat
+                  - generic [ref=e357]:
+                    - generic [ref=e358]: 12 documenten verwerkt
+                    - generic [ref=e362]: 3 openstaande facturen
+              - generic [ref=e376]:
+                - generic [ref=e377]: Bonnetje toegevoegd
+                - generic [ref=e378]: Direct in je administratie
+              - generic [ref=e383]:
+                - generic [ref=e384]: Administratie bijgewerkt
+                - generic [ref=e385]: Klaar voor controle
+              - generic [ref=e386]: DRFA kijkt mee
+          - generic [ref=e395]:
+            - generic [ref=e396]:
+              - generic [ref=e397]: "01"
+              - heading "Kennismaken" [level=3] [ref=e405]
+              - paragraph [ref=e406]: We bespreken jouw onderneming
+              - paragraph [ref=e407]: We bekijken hoe je administratie nu geregeld is en wat jij nodig hebt.
+            - generic [ref=e408]:
+              - generic [ref=e409]: "02"
+              - heading "Moneybird inrichten" [level=3] [ref=e415]
+              - paragraph [ref=e416]: Alles goed ingesteld
+              - paragraph [ref=e417]: We zorgen samen dat je administratie goed staat en dat DRFA toegang heeft om met je mee te werken.
+            - generic [ref=e418]:
+              - generic [ref=e419]: "03"
+              - heading "Samen verder" [level=3] [ref=e425]
+              - paragraph [ref=e426]: Online inzicht, wij kijken mee
+              - paragraph [ref=e427]: Je administratie blijft online beschikbaar. Jij houdt overzicht en DRFA verwerkt, controleert en ondersteunt waar nodig.
+        - generic [ref=e429]:
+          - generic [ref=e431]:
+            - generic [ref=e433]:
+              - button "1 ster" [disabled] [ref=e434]
+              - button "2 sterren" [disabled] [ref=e437]
+              - button "3 sterren" [disabled] [ref=e440]
+              - button "4 sterren" [disabled] [ref=e443]
+              - button "5 sterren" [disabled] [ref=e446]
+            - heading "Wat klanten zeggen" [level=2] [ref=e449]
+            - paragraph [ref=e450]: Lees de ervaringen van ondernemers die ons voorgingen.
+          - generic [ref=e452]:
+            - generic [ref=e453]:
+              - generic [ref=e454]:
+                - generic [ref=e455]:
+                  - img "Profielfoto van Peter van den Berg" [ref=e456]
+                  - generic [ref=e457]:
+                    - paragraph [ref=e458]: Peter van den Berg
+                    - paragraph [ref=e459]: 15 november 2024
+                - generic [ref=e460]:
+                  - button "1 ster" [disabled] [ref=e461]
+                  - button "2 sterren" [disabled] [ref=e464]
+                  - button "3 sterren" [disabled] [ref=e467]
+                  - button "4 sterren" [disabled] [ref=e470]
+                  - button "5 sterren" [disabled] [ref=e473]
+              - paragraph [ref=e476]: Eindelijk een administratiekantoor dat begrijpt wat ik nodig heb als zzp'er. Denny neemt de tijd om alles uit te leggen en denkt echt mee. Top service!
+            - generic [ref=e477]:
+              - generic [ref=e478]:
+                - generic [ref=e479]:
+                  - img "Profielfoto van Sandra Jansen" [ref=e480]
+                  - generic [ref=e481]:
+                    - paragraph [ref=e482]: Sandra Jansen
+                    - paragraph [ref=e483]: 28 oktober 2024
+                - generic [ref=e484]:
+                  - button "1 ster" [disabled] [ref=e485]
+                  - button "2 sterren" [disabled] [ref=e488]
+                  - button "3 sterren" [disabled] [ref=e491]
+                  - button "4 sterren" [disabled] [ref=e494]
+                  - button "5 sterren" [disabled] [ref=e497]
+              - paragraph [ref=e500]: Na jaren van stress over mijn boekhouding heb ik nu rust. Alles wordt perfect afgehandeld en ik krijg altijd snel antwoord op mijn vragen.
+            - generic [ref=e501]:
+              - generic [ref=e502]:
+                - generic [ref=e503]:
+                  - img "Profielfoto van Mike de Vries" [ref=e504]
+                  - generic [ref=e505]:
+                    - paragraph [ref=e506]: Mike de Vries
+                    - paragraph [ref=e507]: 10 oktober 2024
+                - generic [ref=e508]:
+                  - button "1 ster" [disabled] [ref=e509]
+                  - button "2 sterren" [disabled] [ref=e512]
+                  - button "3 sterren" [disabled] [ref=e515]
+                  - button "4 sterren" [disabled] [ref=e518]
+                  - button "5 sterren" [disabled] [ref=e521]
+              - paragraph [ref=e524]: Professioneel en betrouwbaar. De kwartaalrapportages zijn helder en geven mij goed inzicht in mijn financiële situatie. Aanrader!
+            - generic [ref=e525]:
+              - generic [ref=e526]:
+                - generic [ref=e527]:
+                  - img "Profielfoto van Lisa Bakker" [ref=e528]
+                  - generic [ref=e529]:
+                    - paragraph [ref=e530]: Lisa Bakker
+                    - paragraph [ref=e531]: 18 februari 2025
+                - generic [ref=e532]:
+                  - button "1 ster" [disabled] [ref=e533]
+                  - button "2 sterren" [disabled] [ref=e536]
+                  - button "3 sterren" [disabled] [ref=e539]
+                  - button "4 sterren" [disabled] [ref=e542]
+                  - button "5 sterren" [disabled] [ref=e545]
+              - paragraph [ref=e548]: De overstap naar DRFA was de beste keuze voor mijn webshop. Moneybird is samen ingericht en ik zie nu precies hoe mijn zaak ervoor staat.
+            - generic [ref=e549]:
+              - generic [ref=e550]:
+                - generic [ref=e551]:
+                  - img "Profielfoto van Johan Vermeer" [ref=e552]
+                  - generic [ref=e553]:
+                    - paragraph [ref=e554]: Johan Vermeer
+                    - paragraph [ref=e555]: 2 april 2025
+                - generic [ref=e556]:
+                  - button "1 ster" [disabled] [ref=e557]
+                  - button "2 sterren" [disabled] [ref=e560]
+                  - button "3 sterren" [disabled] [ref=e563]
+                  - button "4 sterren" [disabled] [ref=e566]
+                  - button "5 sterren" [disabled] [ref=e569]
+              - paragraph [ref=e572]: Mijn BTW-aangifte is altijd op tijd en klopt gewoon. Geen verrassingen achteraf, en de vaste maandprijs maakt het lekker overzichtelijk.
+            - generic [ref=e573]:
+              - generic [ref=e574]:
+                - generic [ref=e575]:
+                  - img "Profielfoto van Fatima El Amrani" [ref=e576]
+                  - generic [ref=e577]:
+                    - paragraph [ref=e578]: Fatima El Amrani
+                    - paragraph [ref=e579]: 11 juni 2025
+                - generic [ref=e580]:
+                  - button "1 ster" [disabled] [ref=e581]
+                  - button "2 sterren" [disabled] [ref=e584]
+                  - button "3 sterren" [disabled] [ref=e587]
+                  - button "4 sterren" [disabled] [ref=e590]
+                  - button "5 sterren" [disabled] [ref=e593]
+              - paragraph [ref=e596]: Heldere communicatie en altijd dezelfde adviseur. Ik kan met elke vraag terecht en krijg antwoord in normale taal, zonder ingewikkelde termen.
+            - generic [ref=e597]:
+              - generic [ref=e598]:
+                - generic [ref=e599]:
+                  - img "Profielfoto van Tom Hendriks" [ref=e600]
+                  - generic [ref=e601]:
+                    - paragraph [ref=e602]: Tom Hendriks
+                    - paragraph [ref=e603]: 27 september 2025
+                - generic [ref=e604]:
+                  - button "1 ster" [disabled] [ref=e605]
+                  - button "2 sterren" [disabled] [ref=e608]
+                  - button "3 sterren" [disabled] [ref=e611]
+                  - button "4 sterren" [disabled] [ref=e614]
+                  - button "5 sterren" [disabled] [ref=e617]
+              - paragraph [ref=e620]: Snel bereikbaar via WhatsApp en mijn jaarcijfers waren ruim op tijd klaar. Fijn dat er echt met je wordt meegedacht als ondernemer.
+            - generic [ref=e621]:
+              - generic [ref=e622]:
+                - generic [ref=e623]:
+                  - img "Profielfoto van Esra Yilmaz" [ref=e624]
+                  - generic [ref=e625]:
+                    - paragraph [ref=e626]: Esra Yilmaz
+                    - paragraph [ref=e627]: 14 januari 2026
+                - generic [ref=e628]:
+                  - button "1 ster" [disabled] [ref=e629]
+                  - button "2 sterren" [disabled] [ref=e632]
+                  - button "3 sterren" [disabled] [ref=e635]
+                  - button "4 sterren" [disabled] [ref=e638]
+                  - button "5 sterren" [disabled] [ref=e641]
+              - paragraph [ref=e644]: Als startende zzp'er zag ik op tegen de administratie. DRFA heeft alles ingericht en legt stap voor stap uit hoe het werkt. Een enorme opluchting!
+            - generic [ref=e645]:
+              - generic [ref=e646]:
+                - generic [ref=e647]:
+                  - img "Profielfoto van Peter van den Berg" [ref=e648]
+                  - generic [ref=e649]:
+                    - paragraph [ref=e650]: Peter van den Berg
+                    - paragraph [ref=e651]: 15 november 2024
+                - generic [ref=e652]:
+                  - button "1 ster" [disabled] [ref=e653]
+                  - button "2 sterren" [disabled] [ref=e656]
+                  - button "3 sterren" [disabled] [ref=e659]
+                  - button "4 sterren" [disabled] [ref=e662]
+                  - button "5 sterren" [disabled] [ref=e665]
+              - paragraph [ref=e668]: Eindelijk een administratiekantoor dat begrijpt wat ik nodig heb als zzp'er. Denny neemt de tijd om alles uit te leggen en denkt echt mee. Top service!
+            - generic [ref=e669]:
+              - generic [ref=e670]:
+                - generic [ref=e671]:
+                  - img "Profielfoto van Sandra Jansen" [ref=e672]
+                  - generic [ref=e673]:
+                    - paragraph [ref=e674]: Sandra Jansen
+                    - paragraph [ref=e675]: 28 oktober 2024
+                - generic [ref=e676]:
+                  - button "1 ster" [disabled] [ref=e677]
+                  - button "2 sterren" [disabled] [ref=e680]
+                  - button "3 sterren" [disabled] [ref=e683]
+                  - button "4 sterren" [disabled] [ref=e686]
+                  - button "5 sterren" [disabled] [ref=e689]
+              - paragraph [ref=e692]: Na jaren van stress over mijn boekhouding heb ik nu rust. Alles wordt perfect afgehandeld en ik krijg altijd snel antwoord op mijn vragen.
+            - generic [ref=e693]:
+              - generic [ref=e694]:
+                - generic [ref=e695]:
+                  - img "Profielfoto van Mike de Vries" [ref=e696]
+                  - generic [ref=e697]:
+                    - paragraph [ref=e698]: Mike de Vries
+                    - paragraph [ref=e699]: 10 oktober 2024
+                - generic [ref=e700]:
+                  - button "1 ster" [disabled] [ref=e701]
+                  - button "2 sterren" [disabled] [ref=e704]
+                  - button "3 sterren" [disabled] [ref=e707]
+                  - button "4 sterren" [disabled] [ref=e710]
+                  - button "5 sterren" [disabled] [ref=e713]
+              - paragraph [ref=e716]: Professioneel en betrouwbaar. De kwartaalrapportages zijn helder en geven mij goed inzicht in mijn financiële situatie. Aanrader!
+            - generic [ref=e717]:
+              - generic [ref=e718]:
+                - generic [ref=e719]:
+                  - img "Profielfoto van Lisa Bakker" [ref=e720]
+                  - generic [ref=e721]:
+                    - paragraph [ref=e722]: Lisa Bakker
+                    - paragraph [ref=e723]: 18 februari 2025
+                - generic [ref=e724]:
+                  - button "1 ster" [disabled] [ref=e725]
+                  - button "2 sterren" [disabled] [ref=e728]
+                  - button "3 sterren" [disabled] [ref=e731]
+                  - button "4 sterren" [disabled] [ref=e734]
+                  - button "5 sterren" [disabled] [ref=e737]
+              - paragraph [ref=e740]: De overstap naar DRFA was de beste keuze voor mijn webshop. Moneybird is samen ingericht en ik zie nu precies hoe mijn zaak ervoor staat.
+            - generic [ref=e741]:
+              - generic [ref=e742]:
+                - generic [ref=e743]:
+                  - img "Profielfoto van Johan Vermeer" [ref=e744]
+                  - generic [ref=e745]:
+                    - paragraph [ref=e746]: Johan Vermeer
+                    - paragraph [ref=e747]: 2 april 2025
+                - generic [ref=e748]:
+                  - button "1 ster" [disabled] [ref=e749]
+                  - button "2 sterren" [disabled] [ref=e752]
+                  - button "3 sterren" [disabled] [ref=e755]
+                  - button "4 sterren" [disabled] [ref=e758]
+                  - button "5 sterren" [disabled] [ref=e761]
+              - paragraph [ref=e764]: Mijn BTW-aangifte is altijd op tijd en klopt gewoon. Geen verrassingen achteraf, en de vaste maandprijs maakt het lekker overzichtelijk.
+            - generic [ref=e765]:
+              - generic [ref=e766]:
+                - generic [ref=e767]:
+                  - img "Profielfoto van Fatima El Amrani" [ref=e768]
+                  - generic [ref=e769]:
+                    - paragraph [ref=e770]: Fatima El Amrani
+                    - paragraph [ref=e771]: 11 juni 2025
+                - generic [ref=e772]:
+                  - button "1 ster" [disabled] [ref=e773]
+                  - button "2 sterren" [disabled] [ref=e776]
+                  - button "3 sterren" [disabled] [ref=e779]
+                  - button "4 sterren" [disabled] [ref=e782]
+                  - button "5 sterren" [disabled] [ref=e785]
+              - paragraph [ref=e788]: Heldere communicatie en altijd dezelfde adviseur. Ik kan met elke vraag terecht en krijg antwoord in normale taal, zonder ingewikkelde termen.
+            - generic [ref=e789]:
+              - generic [ref=e790]:
+                - generic [ref=e791]:
+                  - img "Profielfoto van Tom Hendriks" [ref=e792]
+                  - generic [ref=e793]:
+                    - paragraph [ref=e794]: Tom Hendriks
+                    - paragraph [ref=e795]: 27 september 2025
+                - generic [ref=e796]:
+                  - button "1 ster" [disabled] [ref=e797]
+                  - button "2 sterren" [disabled] [ref=e800]
+                  - button "3 sterren" [disabled] [ref=e803]
+                  - button "4 sterren" [disabled] [ref=e806]
+                  - button "5 sterren" [disabled] [ref=e809]
+              - paragraph [ref=e812]: Snel bereikbaar via WhatsApp en mijn jaarcijfers waren ruim op tijd klaar. Fijn dat er echt met je wordt meegedacht als ondernemer.
+            - generic [ref=e813]:
+              - generic [ref=e814]:
+                - generic [ref=e815]:
+                  - img "Profielfoto van Esra Yilmaz" [ref=e816]
+                  - generic [ref=e817]:
+                    - paragraph [ref=e818]: Esra Yilmaz
+                    - paragraph [ref=e819]: 14 januari 2026
+                - generic [ref=e820]:
+                  - button "1 ster" [disabled] [ref=e821]
+                  - button "2 sterren" [disabled] [ref=e824]
+                  - button "3 sterren" [disabled] [ref=e827]
+                  - button "4 sterren" [disabled] [ref=e830]
+                  - button "5 sterren" [disabled] [ref=e833]
+              - paragraph [ref=e836]: Als startende zzp'er zag ik op tegen de administratie. DRFA heeft alles ingericht en legt stap voor stap uit hoe het werkt. Een enorme opluchting!
+        - generic [ref=e839]:
+          - generic [ref=e840]:
+            - heading "Contact" [level=2] [ref=e841]
+            - paragraph [ref=e842]: Vragen of direct aan de slag? Stuur een bericht en we reageren binnen 24 uur.
+          - generic [ref=e844]:
+            - link [ref=e845] [cursor=pointer]:
+              - /url: tel:+31 6 54324404
+              - heading "Bel ons" [level=3] [ref=e849]
+              - paragraph [ref=e850]: 06 5432 4404
+              - paragraph [ref=e851]: Ma-Vr, 9:00 - 17:00
+            - link [ref=e852] [cursor=pointer]:
+              - /url: mailto:info@admindrfa.nl
+              - heading "E-mail" [level=3] [ref=e857]
+              - paragraph [ref=e858]: info@admindrfa.nl
+              - paragraph [ref=e859]: Reactie binnen 24 uur
+            - link [ref=e860] [cursor=pointer]:
+              - /url: https://maps.google.com/?q=Zevenwoudenplantsoen%2011%2C%202036%20NL%20Haarlem
+              - heading "Adres" [level=3] [ref=e865]
+              - paragraph [ref=e866]: Zevenwoudenplantsoen 11
+              - paragraph [ref=e867]: 2036 NL Haarlem
+          - generic [ref=e868]:
+            - generic [ref=e869]:
+              - heading "Stuur een bericht" [level=3] [ref=e870]
+              - generic [ref=e872]:
+                - generic [ref=e873]:
+                  - generic [ref=e874]:
+                    - generic [ref=e875]: Naam *
+                    - textbox "Naam *" [ref=e876]:
+                      - /placeholder: Je naam
+                  - generic [ref=e877]:
+                    - generic [ref=e878]: E-mail *
+                    - textbox "E-mail *" [ref=e879]:
+                      - /placeholder: je@email.nl
+                - generic [ref=e880]:
+                  - generic [ref=e881]:
+                    - generic [ref=e882]: Telefoon
+                    - textbox "Telefoon" [ref=e883]:
+                      - /placeholder: 06 12345678
+                  - generic [ref=e884]:
+                    - generic [ref=e885]: Onderwerp
+                    - textbox "Onderwerp" [ref=e886]:
+                      - /placeholder: Waar gaat het over?
+                - generic [ref=e887]:
+                  - generic [ref=e888]: Bericht *
+                  - textbox "Bericht *" [ref=e889]:
+                    - /placeholder: Vertel ons hoe we je kunnen helpen...
+                - generic [ref=e890]:
+                  - button "Verstuur bericht" [ref=e891] [cursor=pointer]
+                  - link "Via WhatsApp" [ref=e892] [cursor=pointer]:
+                    - /url: https://wa.me/31654324404?text=Hallo!%20Ik%20wil%20graag%20meer%20informatie%20over%20jullie%20diensten.
+            - generic [ref=e893]:
+              - heading "Locatie" [level=3] [ref=e894]
+              - generic [ref=e895]:
+                - iframe [ref=e897]
+                - generic [ref=e898]:
+                  - heading "Bedrijfsgegevens" [level=4] [ref=e899]
+                  - generic [ref=e900]:
+                    - generic [ref=e901]:
+                      - term [ref=e902]: Bedrijfsnaam
+                      - definition [ref=e903]: Administratiekantoor DRFA
+                    - generic [ref=e904]:
+                      - term [ref=e905]: KVK-nummer
+                      - definition [ref=e906]: "91593344"
+                    - generic [ref=e907]:
+                      - term [ref=e908]: Adres
+                      - definition [ref=e909]: Zevenwoudenplantsoen 112036 NL Haarlem
+                - generic [ref=e910]:
+                  - heading "Bereikbaarheid" [level=4] [ref=e911]
+                  - generic [ref=e912]:
+                    - generic [ref=e913]:
+                      - term [ref=e914]: Maandag - Vrijdag
+                      - definition [ref=e915]: 9:00 - 17:00
+                    - generic [ref=e916]:
+                      - term [ref=e917]: Weekend
+                      - definition [ref=e918]: Gesloten
+                  - paragraph [ref=e919]: Buiten kantoortijden kun je altijd een bericht achterlaten via WhatsApp of e-mail.
+    - contentinfo [ref=e920]:
+      - generic [ref=e921]:
+        - generic [ref=e922]:
+          - generic [ref=e923]:
+            - link "DRFA Logo Administratiekantoor DRFA" [ref=e924] [cursor=pointer]:
+              - /url: /
+              - img "DRFA Logo" [ref=e925]
+              - generic [ref=e926]: Administratiekantoor DRFA
+            - paragraph [ref=e927]: Persoonlijke administratieve ondersteuning voor freelancers, zzp'ers en kleine ondernemers. Geen ingewikkelde termen, gewoon eerlijk advies.
+            - generic [ref=e928]:
+              - link "Instagram" [ref=e929] [cursor=pointer]:
+                - /url: https://instagram.com/admindrfa
+              - link "WhatsApp" [ref=e933] [cursor=pointer]:
+                - /url: https://wa.me/31654324404?text=Hallo!%20Ik%20heb%20een%20vraag%20over%20jullie%20diensten.
+          - generic [ref=e936]:
+            - heading "Snelle links" [level=4] [ref=e937]
+            - list [ref=e938]:
+              - listitem [ref=e939]:
+                - link "Home" [ref=e940] [cursor=pointer]:
+                  - /url: "#top"
+              - listitem [ref=e942]:
+                - link "Pakketten" [ref=e943] [cursor=pointer]:
+                  - /url: "#pakketten"
+              - listitem [ref=e945]:
+                - link "Over ons" [ref=e946] [cursor=pointer]:
+                  - /url: "#over-ons"
+              - listitem [ref=e948]:
+                - link "Reviews" [ref=e949] [cursor=pointer]:
+                  - /url: "#reviews"
+              - listitem [ref=e951]:
+                - link "Contact" [ref=e952] [cursor=pointer]:
+                  - /url: "#contact"
+          - generic [ref=e954]:
+            - heading "Contact" [level=4] [ref=e955]
+            - list [ref=e956]:
+              - listitem [ref=e957]:
+                - link "06 5432 4404" [ref=e960] [cursor=pointer]:
+                  - /url: tel:+31 6 54324404
+              - listitem [ref=e961]:
+                - link "info@admindrfa.nl" [ref=e965] [cursor=pointer]:
+                  - /url: mailto:info@admindrfa.nl
+        - generic [ref=e966]:
+          - paragraph [ref=e967]: © 2026 Administratiekantoor DRFA. Alle rechten voorbehouden.
+          - paragraph [ref=e968]: "KVK: 91593344"
+    - link "Chat via WhatsApp" [ref=e969] [cursor=pointer]:
+      - /url: https://wa.me/31654324404?text=Hallo!%20Ik%20heb%20een%20vraag%20over%20jullie%20diensten.

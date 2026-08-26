@@ -1,8 +1,11 @@
 "use client";
 
 import { PricingCards } from "@/components/PricingCards";
+import { useT } from "@/lib/i18n";
 
 export function PackagesSection() {
+  const t = useT();
+
   return (
     <section className="relative w-full overflow-hidden py-20 md:py-28
       bg-gradient-to-b from-[#0B3772] via-[#0A2F66] to-[#082A5B]">
@@ -26,11 +29,9 @@ export function PackagesSection() {
       <div className="container relative z-[2] pt-16 md:pt-24">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl text-white">
-            Onze pakketten
+            {t.packages.title}
           </h2>
-          <p className="text-lg text-white/70">
-            Kies het pakket dat bij jouw situatie past. Upgraden kan altijd.
-          </p>
+          <p className="text-lg text-white/70">{t.packages.subtitle}</p>
         </div>
 
         <PricingCards />
@@ -47,7 +48,7 @@ export function PackagesSection() {
         >
           <path
             d="M0 200 L0 200 Q0 0 400 0 L1440 0 L1440 200 Z"
-            fill="#e0f2fe"
+            fill="#ffffff"
           />
         </svg>
       </div>

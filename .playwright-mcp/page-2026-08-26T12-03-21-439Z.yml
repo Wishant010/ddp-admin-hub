@@ -1,0 +1,352 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - paragraph [ref=e3]:
+      - text: Gratis verzending vanaf € 75
+      - generic [ref=e4]: ·Ophalen in Rotterdam
+      - generic [ref=e5]: ·Verpakt in giftbox
+    - button "Melding sluiten" [ref=e6] [cursor=pointer]
+  - banner [ref=e10]:
+    - navigation "Hoofdnavigatie" [ref=e11]:
+      - link "NoesFashion home" [ref=e12] [cursor=pointer]:
+        - /url: /
+        - img "NoesFashion logo" [ref=e13]
+        - generic [ref=e14]: NoesFashion
+      - list [ref=e15]:
+        - listitem [ref=e16]:
+          - button "Tassen" [ref=e17] [cursor=pointer]
+        - listitem [ref=e20]:
+          - button "Accessoires" [ref=e21] [cursor=pointer]
+        - listitem [ref=e24]:
+          - link "Cadeaus" [ref=e25] [cursor=pointer]:
+            - /url: /collectie/cadeaus
+        - listitem [ref=e26]:
+          - link "Nieuw" [ref=e27] [cursor=pointer]:
+            - /url: /collectie?sorteer=nieuw
+        - listitem [ref=e28]:
+          - link "Over ons" [ref=e29] [cursor=pointer]:
+            - /url: /over-ons
+      - generic [ref=e30]:
+        - button "Zoeken" [ref=e31] [cursor=pointer]
+        - button "Winkelwagen openen" [ref=e35] [cursor=pointer]
+  - main [ref=e39]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - heading [level=1] [ref=e43]:
+          - text: Tijdloze tassen,
+          - emphasis [ref=e44]: elke dag
+          - text: mooi.
+        - paragraph [ref=e45]: "Tassen en accessoires die bij alles passen: van ruime shopper tot fijne ketting."
+        - generic [ref=e46]:
+          - link "Shop tassen" [ref=e47] [cursor=pointer]:
+            - /url: /collectie/tassen
+          - link "Shop accessoires" [ref=e48] [cursor=pointer]:
+            - /url: /collectie/accessoires
+      - img "Handtas uit de NoesFashion-collectie" [ref=e52]
+    - region [ref=e53]:
+      - generic [ref=e55]:
+        - paragraph [ref=e56]: Shop op categorie
+        - heading "Waar ben je naar op zoek?" [level=2] [ref=e57]
+      - generic [ref=e58]:
+        - link [ref=e59] [cursor=pointer]:
+          - /url: /collectie/handtassen
+          - img "Handtassen" [ref=e61]
+          - generic [ref=e63]: Handtassen
+        - link [ref=e66] [cursor=pointer]:
+          - /url: /collectie/schoudertassen
+          - img "Schoudertassen" [ref=e68]
+          - generic [ref=e70]: Schoudertassen
+        - link [ref=e73] [cursor=pointer]:
+          - /url: /collectie/crossbody
+          - img "Crossbody" [ref=e75]
+          - generic [ref=e77]: Crossbody
+        - link [ref=e80] [cursor=pointer]:
+          - /url: /collectie/portemonnees
+          - img "Portemonnees" [ref=e82]
+          - generic [ref=e84]: Portemonnees
+        - link [ref=e87] [cursor=pointer]:
+          - /url: /collectie/sieraden
+          - img "Sieraden" [ref=e89]
+          - generic [ref=e91]: Sieraden
+        - link [ref=e94] [cursor=pointer]:
+          - /url: /collectie/accessoires
+          - img "Accessoires" [ref=e96]
+          - generic [ref=e98]: Accessoires
+    - region [ref=e101]:
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - paragraph [ref=e104]: Nieuw binnen
+          - heading "Net in de collectie" [level=2] [ref=e105]
+        - link "Alles bekijken" [ref=e106] [cursor=pointer]:
+          - /url: /collectie?sorteer=nieuw
+      - generic [ref=e109]:
+        - article [ref=e110]:
+          - link "Parel avondclutch — Clutches & avondtassen Nieuw Parel avondclutch € 39,95 Verkrijgbaar in 3 kleuren" [ref=e111] [cursor=pointer]:
+            - /url: /product/parel-clutch
+            - generic [ref=e112]:
+              - img "Parel avondclutch — Clutches & avondtassen" [ref=e113]
+              - generic [ref=e114]: Nieuw
+            - generic [ref=e115]:
+              - heading "Parel avondclutch" [level=3] [ref=e116]
+              - generic [ref=e117]:
+                - generic [ref=e118]: € 39,95
+                - generic "Verkrijgbaar in 3 kleuren" [ref=e119]:
+                  - generic "Beige" [ref=e120]
+                  - generic "Zilver" [ref=e121]
+                  - generic "Zwart" [ref=e122]
+        - article [ref=e123]:
+          - link "Luna schakelketting — Sieraden Nieuw Luna schakelketting € 19,95 Verkrijgbaar in 2 kleuren" [ref=e124] [cursor=pointer]:
+            - /url: /product/luna-schakelketting
+            - generic [ref=e125]:
+              - img "Luna schakelketting — Sieraden" [ref=e126]
+              - generic [ref=e127]: Nieuw
+            - generic [ref=e128]:
+              - heading "Luna schakelketting" [level=3] [ref=e129]
+              - generic [ref=e130]:
+                - generic [ref=e131]: € 19,95
+                - generic "Verkrijgbaar in 2 kleuren" [ref=e132]:
+                  - generic "Goud" [ref=e133]
+                  - generic "Zilver" [ref=e134]
+        - article [ref=e135]:
+          - link "Classic riem — Riemen Nieuw Classic riem € 22,50 Verkrijgbaar in 3 kleuren" [ref=e136] [cursor=pointer]:
+            - /url: /product/riem-classic
+            - generic [ref=e137]:
+              - img "Classic riem — Riemen" [ref=e138]
+              - generic [ref=e139]: Nieuw
+            - generic [ref=e140]:
+              - heading "Classic riem" [level=3] [ref=e141]
+              - generic [ref=e142]:
+                - generic [ref=e143]: € 22,50
+                - generic "Verkrijgbaar in 3 kleuren" [ref=e144]:
+                  - generic "Bruin / cognac" [ref=e145]
+                  - generic "Wit / crème" [ref=e146]
+                  - generic "Zwart" [ref=e147]
+        - article [ref=e148]:
+          - link "Noes Classic handtas — Handtassen Bestseller Noes Classic handtas € 79,95 Verkrijgbaar in 4 kleuren" [ref=e149] [cursor=pointer]:
+            - /url: /product/noes-classic-handtas
+            - generic [ref=e150]:
+              - img "Noes Classic handtas — Handtassen" [ref=e151]
+              - generic [ref=e152]: Bestseller
+            - generic [ref=e153]:
+              - heading "Noes Classic handtas" [level=3] [ref=e154]
+              - generic [ref=e155]:
+                - generic [ref=e156]: € 79,95
+                - generic "Verkrijgbaar in 4 kleuren" [ref=e157]:
+                  - generic "Bruin / cognac" [ref=e158]
+                  - generic "Wit / crème" [ref=e159]
+                  - generic "Taupe" [ref=e160]
+                  - generic "Zwart" [ref=e161]
+        - article [ref=e162]:
+          - link "Milaan schoudertas — Schoudertassen Bestseller Milaan schoudertas € 64,95 Verkrijgbaar in 3 kleuren" [ref=e163] [cursor=pointer]:
+            - /url: /product/milaan-schoudertas
+            - generic [ref=e164]:
+              - img "Milaan schoudertas — Schoudertassen" [ref=e165]
+              - generic [ref=e166]: Bestseller
+            - generic [ref=e167]:
+              - heading "Milaan schoudertas" [level=3] [ref=e168]
+              - generic [ref=e169]:
+                - generic [ref=e170]: € 64,95
+                - generic "Verkrijgbaar in 3 kleuren" [ref=e171]:
+                  - generic "Beige" [ref=e172]
+                  - generic "Groen" [ref=e173]
+                  - generic "Zwart" [ref=e174]
+        - article [ref=e175]:
+          - link "Lente crossbody — Crossbody Bestseller Lente crossbody € 44,95 Verkrijgbaar in 4 kleuren" [ref=e176] [cursor=pointer]:
+            - /url: /product/lente-crossbody
+            - generic [ref=e177]:
+              - img "Lente crossbody — Crossbody" [ref=e178]
+              - generic [ref=e179]: Bestseller
+            - generic [ref=e180]:
+              - heading "Lente crossbody" [level=3] [ref=e181]
+              - generic [ref=e182]:
+                - generic [ref=e183]: € 44,95
+                - generic "Verkrijgbaar in 4 kleuren" [ref=e184]:
+                  - generic "Bruin / cognac" [ref=e185]
+                  - generic "Wit / crème" [ref=e186]
+                  - generic "Roze" [ref=e187]
+                  - generic "Zwart" [ref=e188]
+        - article [ref=e189]:
+          - link "Amber shopper — Shoppers Amber shopper € 74,95 Verkrijgbaar in 3 kleuren" [ref=e190] [cursor=pointer]:
+            - /url: /product/amber-shopper
+            - img "Amber shopper — Shoppers" [ref=e192]
+            - generic [ref=e193]:
+              - heading "Amber shopper" [level=3] [ref=e194]
+              - generic [ref=e195]:
+                - generic [ref=e196]: € 74,95
+                - generic "Verkrijgbaar in 3 kleuren" [ref=e197]:
+                  - generic "Bruin / cognac" [ref=e198]
+                  - generic "Taupe" [ref=e199]
+                  - generic "Zwart" [ref=e200]
+        - article [ref=e201]:
+          - link "Vera portemonnee — Portemonnees Bestseller Vera portemonnee € 29,95 Verkrijgbaar in 4 kleuren" [ref=e202] [cursor=pointer]:
+            - /url: /product/vera-portemonnee
+            - generic [ref=e203]:
+              - img "Vera portemonnee — Portemonnees" [ref=e204]
+              - generic [ref=e205]: Bestseller
+            - generic [ref=e206]:
+              - heading "Vera portemonnee" [level=3] [ref=e207]
+              - generic [ref=e208]:
+                - generic [ref=e209]: € 29,95
+                - generic "Verkrijgbaar in 4 kleuren" [ref=e210]:
+                  - generic "Bruin / cognac" [ref=e211]
+                  - generic "Roze" [ref=e212]
+                  - generic "Taupe" [ref=e213]
+                  - generic "Zwart" [ref=e214]
+    - list [ref=e216]:
+      - listitem [ref=e217]: Zorgvuldig geselecteerd
+      - listitem [ref=e220]: Verpakt in giftbox
+      - listitem [ref=e225]: Ophalen in Rotterdam
+      - listitem [ref=e231]: Reactie binnen 24 uur
+    - region [ref=e235]:
+      - generic [ref=e236]:
+        - generic [ref=e237]:
+          - paragraph [ref=e238]: Bestsellers
+          - heading "Onze meest gekozen favorieten" [level=2] [ref=e239]
+        - link "Alles bekijken" [ref=e240] [cursor=pointer]:
+          - /url: /collectie
+      - generic [ref=e243]:
+        - article [ref=e244]:
+          - link "Noes Classic handtas — Handtassen Bestseller Noes Classic handtas € 79,95 Verkrijgbaar in 4 kleuren" [ref=e245] [cursor=pointer]:
+            - /url: /product/noes-classic-handtas
+            - generic [ref=e246]:
+              - img "Noes Classic handtas — Handtassen" [ref=e247]
+              - generic [ref=e248]: Bestseller
+            - generic [ref=e249]:
+              - heading "Noes Classic handtas" [level=3] [ref=e250]
+              - generic [ref=e251]:
+                - generic [ref=e252]: € 79,95
+                - generic "Verkrijgbaar in 4 kleuren" [ref=e253]:
+                  - generic "Bruin / cognac" [ref=e254]
+                  - generic "Wit / crème" [ref=e255]
+                  - generic "Taupe" [ref=e256]
+                  - generic "Zwart" [ref=e257]
+        - article [ref=e258]:
+          - link "Milaan schoudertas — Schoudertassen Bestseller Milaan schoudertas € 64,95 Verkrijgbaar in 3 kleuren" [ref=e259] [cursor=pointer]:
+            - /url: /product/milaan-schoudertas
+            - generic [ref=e260]:
+              - img "Milaan schoudertas — Schoudertassen" [ref=e261]
+              - generic [ref=e262]: Bestseller
+            - generic [ref=e263]:
+              - heading "Milaan schoudertas" [level=3] [ref=e264]
+              - generic [ref=e265]:
+                - generic [ref=e266]: € 64,95
+                - generic "Verkrijgbaar in 3 kleuren" [ref=e267]:
+                  - generic "Beige" [ref=e268]
+                  - generic "Groen" [ref=e269]
+                  - generic "Zwart" [ref=e270]
+        - article [ref=e271]:
+          - link "Lente crossbody — Crossbody Bestseller Lente crossbody € 44,95 Verkrijgbaar in 4 kleuren" [ref=e272] [cursor=pointer]:
+            - /url: /product/lente-crossbody
+            - generic [ref=e273]:
+              - img "Lente crossbody — Crossbody" [ref=e274]
+              - generic [ref=e275]: Bestseller
+            - generic [ref=e276]:
+              - heading "Lente crossbody" [level=3] [ref=e277]
+              - generic [ref=e278]:
+                - generic [ref=e279]: € 44,95
+                - generic "Verkrijgbaar in 4 kleuren" [ref=e280]:
+                  - generic "Bruin / cognac" [ref=e281]
+                  - generic "Wit / crème" [ref=e282]
+                  - generic "Roze" [ref=e283]
+                  - generic "Zwart" [ref=e284]
+        - article [ref=e285]:
+          - link "Vera portemonnee — Portemonnees Bestseller Vera portemonnee € 29,95 Verkrijgbaar in 4 kleuren" [ref=e286] [cursor=pointer]:
+            - /url: /product/vera-portemonnee
+            - generic [ref=e287]:
+              - img "Vera portemonnee — Portemonnees" [ref=e288]
+              - generic [ref=e289]: Bestseller
+            - generic [ref=e290]:
+              - heading "Vera portemonnee" [level=3] [ref=e291]
+              - generic [ref=e292]:
+                - generic [ref=e293]: € 29,95
+                - generic "Verkrijgbaar in 4 kleuren" [ref=e294]:
+                  - generic "Bruin / cognac" [ref=e295]
+                  - generic "Roze" [ref=e296]
+                  - generic "Taupe" [ref=e297]
+                  - generic "Zwart" [ref=e298]
+    - region [ref=e299]:
+      - generic [ref=e300]:
+        - img "Accessoires uit de NoesFashion-collectie" [ref=e302]
+        - generic [ref=e303]:
+          - paragraph [ref=e304]: Over NoesFashion
+          - heading "Voor de vrouw die van mooi en praktisch houdt" [level=2] [ref=e305]
+          - paragraph [ref=e306]: "Een goede tas kan allebei zijn: mooi én slim. Daarom selecteren we elk item met zorg op kwaliteit, draagcomfort en tijdloos design. Geen wegwerpmode, wel favorieten waar je jaren plezier van hebt."
+          - link "Ons verhaal" [ref=e307] [cursor=pointer]:
+            - /url: /over-ons
+    - generic [ref=e311]:
+      - heading "Op zoek naar iets specifieks? We denken graag met je mee." [level=2] [ref=e312]
+      - paragraph [ref=e313]: Vertel ons waar je naar op zoek bent, voor jezelf of als cadeau. We helpen je de tas of het accessoire te vinden dat precies past.
+      - generic [ref=e314]:
+        - link "Neem contact op" [ref=e315] [cursor=pointer]:
+          - /url: /contact
+        - link "Bekijk cadeaus" [ref=e316] [cursor=pointer]:
+          - /url: /collectie/cadeaus
+  - contentinfo [ref=e317]:
+    - generic [ref=e319]:
+      - generic [ref=e320]:
+        - generic [ref=e321]:
+          - link "NoesFashion logo NoesFashion" [ref=e322] [cursor=pointer]:
+            - /url: /
+            - img "NoesFashion logo" [ref=e323]
+            - generic [ref=e324]: NoesFashion
+          - paragraph [ref=e325]: Tassen en accessoires die bij alles passen, met zorg geselecteerd in Rotterdam en verpakt in giftbox.
+        - navigation "Shop" [ref=e326]:
+          - heading "Shop" [level=4] [ref=e327]
+          - list [ref=e328]:
+            - listitem [ref=e329]:
+              - link "Handtassen" [ref=e330] [cursor=pointer]:
+                - /url: /collectie/handtassen
+            - listitem [ref=e331]:
+              - link "Schoudertassen" [ref=e332] [cursor=pointer]:
+                - /url: /collectie/schoudertassen
+            - listitem [ref=e333]:
+              - link "Crossbody" [ref=e334] [cursor=pointer]:
+                - /url: /collectie/crossbody
+            - listitem [ref=e335]:
+              - link "Shoppers" [ref=e336] [cursor=pointer]:
+                - /url: /collectie/shoppers
+            - listitem [ref=e337]:
+              - link "Sieraden" [ref=e338] [cursor=pointer]:
+                - /url: /collectie/sieraden
+            - listitem [ref=e339]:
+              - link "Alle producten" [ref=e340] [cursor=pointer]:
+                - /url: /collectie
+        - navigation "Klantenservice en NoesFashion" [ref=e341]:
+          - heading "Klantenservice" [level=4] [ref=e342]
+          - list [ref=e343]:
+            - listitem [ref=e344]:
+              - link "Contact" [ref=e345] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e346]:
+              - link "Over ons" [ref=e347] [cursor=pointer]:
+                - /url: /over-ons
+            - listitem [ref=e348]:
+              - link "@noes.fashion" [ref=e349] [cursor=pointer]:
+                - /url: https://instagram.com/noes.fashion
+            - listitem [ref=e353]:
+              - button "Privacybeleid" [ref=e354] [cursor=pointer]
+            - listitem [ref=e355]:
+              - button "Algemene voorwaarden" [ref=e356] [cursor=pointer]
+            - listitem [ref=e357]:
+              - button "Cookiebeleid" [ref=e358] [cursor=pointer]
+        - generic [ref=e359]:
+          - heading "Contact & ophalen" [level=4] [ref=e360]
+          - list [ref=e361]:
+            - listitem [ref=e362]:
+              - link "hallo@noesfashion.nl" [ref=e366] [cursor=pointer]:
+                - /url: mailto:hallo@noesfashion.nl
+            - listitem [ref=e367]:
+              - link "Modeplein 12, 3011 AB Rotterdam Bestellingen op te halen" [ref=e371] [cursor=pointer]:
+                - /url: https://maps.google.com/?q=Modeplein+12+Rotterdam
+                - text: Modeplein 12, 3011 AB Rotterdam
+                - generic [ref=e372]: Bestellingen op te halen
+            - listitem [ref=e373]:
+              - generic [ref=e377]: Ma–vr 09:00–17:30 · za 10:00–16:00
+      - generic [ref=e379]:
+        - paragraph [ref=e380]: © 2026 NoesFashion. Alle rechten voorbehouden.
+        - paragraph [ref=e381]:
+          - generic [ref=e382]: Ophalen in Rotterdam · Verpakt in giftbox
+          - generic [ref=e383]: ·
+          - button "Cookie-instellingen" [ref=e384] [cursor=pointer]
+        - link "Powered by TechTable" [ref=e385] [cursor=pointer]:
+          - /url: https://techtable.nl
+  - button "Open Next.js Dev Tools" [ref=e391] [cursor=pointer]

@@ -1,3 +1,6 @@
+// Productie-URL van de site (gebruikt voor canonical, sitemap, Open Graph en schema)
+export const SITE_URL = "https://www.admindrfa.nl";
+
 // Contact Information
 export const CONTACT = {
   email: "info@admindrfa.nl",
@@ -6,7 +9,7 @@ export const CONTACT = {
   address: "Zevenwoudenplantsoen 11",
   postalCity: "2036 NL Haarlem",
   kvk: "91593344",
-  whatsapp: "31654324404",
+  whatsapp: "31640772472",
 } as const;
 
 // Social Links
@@ -16,79 +19,7 @@ export const SOCIALS = {
     `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`,
 } as const;
 
-// Navigation Items
-export const NAV_ITEMS = [
-  { label: "Home", href: "#top" },
-  { label: "Pakketten", href: "#pakketten" },
-  { label: "Over ons", href: "#over-ons" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
-] as const;
-
-// Packages/Pricing
-export const PACKAGES = [
-  {
-    name: "Basis",
-    price: 100,
-    period: "per maand",
-    description: "Perfect voor starters met weinig transacties",
-    features: [
-      "Tot 30 boekingen per maand",
-      "Koppeling boekhoudsoftware",
-      "Kwartaal-BTW-aangifte",
-      "Jaarrekening in Excel / PDF",
-    ],
-    highlighted: false,
-  },
-  {
-    name: "Compleet",
-    price: 150,
-    period: "per maand",
-    description: "De beste keuze voor groeiende ondernemers",
-    badge: "Meest gekozen",
-    features: [
-      "Alles uit Basis",
-      "Tot 100 boekingen per maand",
-      "Aangifte inkomstenbelasting",
-      "Kwartaalrapportage",
-      "Beperkt advies (max. 1 uur per kwartaal)",
-    ],
-    highlighted: true,
-  },
-  {
-    name: "Premium",
-    price: 250,
-    period: "per maand",
-    description: "Volledige ontzorging voor ambitieuze ondernemers",
-    features: [
-      "Alles uit Compleet",
-      "Onbeperkt boekingen",
-      "Maandelijkse rapportage",
-      "Onbeperkt advies per e-mail/telefoon",
-      "Hulp bij investeringen, auto van de zaak, etc.",
-    ],
-    highlighted: false,
-  },
-] as const;
-
-// Steps / Werkwijze
-export const STEPS = [
-  {
-    number: 1,
-    title: "Aanmelden",
-    description: "Neem contact op via het formulier of WhatsApp en vertel over je situatie.",
-  },
-  {
-    number: 2,
-    title: "Offerte ondertekenen",
-    description: "Je ontvangt een helder voorstel zonder verrassingen. Akkoord? Dan starten we.",
-  },
-  {
-    number: 3,
-    title: "Laat de rest aan ons over",
-    description: "Gefeliciteerd! Wij regelen je administratie, jij focust op ondernemen.",
-  },
-] as const;
+// Navigatie, pakketten en overige teksten staan in lib/translations.ts (NL + EN)
 
 // Review type
 export interface Review {
@@ -98,7 +29,5 @@ export interface Review {
   text: string;
   date: string;
   status: "pending" | "approved";
+  photo?: string;
 }
-
-// Default WhatsApp message
-export const DEFAULT_WHATSAPP_MESSAGE = "Hallo! Ik heb een vraag over jullie diensten.";

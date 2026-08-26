@@ -1,0 +1,76 @@
+[     567ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25630
+[   23440ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:196
+[   24239ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:196
+[   24308ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3009/_next/static/webpack/48cd8f5e756e11b5.webpack.hot-update.json:0
+[   26171ms] [WARNING] Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:15
+[   26578ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:111
+[   26886ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25630
+[   27126ms] [WARNING] Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:15
+[   28156ms] [WARNING] Image with src "/drfa-workspace.png" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
+Read more: https://nextjs.org/docs/api-reference/next/image#priority @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:15
+[   46587ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:196
+[   47638ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3009/_next/static/webpack/7e25619168207468.webpack.hot-update.json:0
+[   47899ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:196
+[   48970ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3009/_next/static/webpack/8043487a38222cdd.webpack.hot-update.json:0
+[   49762ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3009/?_rsc=U80r8cEO1EGbi06P#over-ons:0
+[   49766ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3009/#over-ons:0
+[   51795ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(pages-dir-browser)/./node_modules/react-dom/cjs/react-dom-client.development.js:28004
+[   51858ms] TypeError: __webpack_modules__[moduleId] is not a function
+    at __webpack_require__ (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\webpack-runtime.js:25:42)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/app-render/encryption-utils.js:40:35)
+    at <unknown> (rsc)/./node_modules/next/dist/server/app-render/encryption-utils.js (C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\vendor-chunks\next.js:881:1)
+    at __webpack_require__ (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\webpack-runtime.js:25:42)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fpage&page=%2Fpage&appPaths=%2Fpage&pagePath=private-next-app-dir%2Fpage.tsx&appDir=C%3A%5CUsers%5CWish%5CDownloads%5Cgithub-repo%5Cwebsite%5Cfamilie%5Cdenish-zwager%5Cdrfa-boekhouding-%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5CWish%5CDownloads%5Cgithub-repo%5Cwebsite%5Cfamilie%5Cdenish-zwager%5Cdrfa-boekhouding-&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:28:103)
+    at <unknown> (rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fpage&page=%2Fpage&appPaths=%2Fpage&pagePath=private-next-app-dir%2Fpage.tsx&appDir=C%3A%5CUsers%5CWish%5CDownloads%5Cgithub-repo%5Cwebsite%5Cfamilie%5Cdenish-zwager%5Cdrfa-boekhouding-%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5CWish%5CDownloads%5Cgithub-repo%5Cwebsite%5Cfamilie%5Cdenish-zwager%5Cdrfa-boekhouding-&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=! (C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\app\page.js:55:1)
+    at __webpack_require__ (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\webpack-runtime.js:25:42)
+    at __webpack_exec__ (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\app\page.js:563:39)
+    at <unknown> (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\app\page.js:564:358)
+    at __webpack_require__.X (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\webpack-runtime.js:160:21)
+    at <unknown> (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\app\page.js:564:47)
+    at Object.<anonymous> (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\.next\server\app\page.js:567:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\require-hook.js:68:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\require.js:99:80)
+    at loadComponentsImpl (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\load-components.js:132:57)
+    at async DevServer.findPageComponentsImpl (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\next-server.js:900:36)
+    at async DevServer.findPageComponents (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\dev\next-dev-server.js:706:16)
+    at async DevServer.renderPageComponent (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\base-server.js:1468:24)
+    at async DevServer.renderToResponseImpl (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\base-server.js:1522:32)
+    at async DevServer.pipeImpl (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\base-server.js:1026:25)
+    at async NextNodeServer.handleCatchallRenderRequest (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\next-server.js:394:17)
+    at async DevServer.handleRequestImpl (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\base-server.js:917:17)
+    at async (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\dev\next-dev-server.js:400:20)
+    at async Span.traceAsyncFn (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\trace\trace.js:157:20)
+    at async DevServer.handleRequest (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\dev\next-dev-server.js:396:24)
+    at async invokeRender (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\lib\router-server.js:240:21)
+    at async handleRequest (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\lib\router-server.js:437:24)
+    at async requestHandlerImpl (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\lib\router-server.js:485:13)
+    at async Server.requestListener (file://C:\Users\Wish\Downloads\github-repo\website\familie\denish-zwager\drfa-boekhouding-\node_modules\next\dist\server\lib\start-server.js:226:13)
+[   51858ms] [LOG] [HMR] connected @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:45
+[   52854ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:347
+[   53474ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:206
+[   53893ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3009/#over-ons:0
+[   55151ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25630
+[   56206ms] [WARNING] Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:15
+[   66755ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:196
+[   67681ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:196
+[   68148ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3009/_next/static/webpack/d771b2f300392c26.webpack.hot-update.json:0
+[   68535ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3009/_next/static/webpack/d771b2f300392c26.webpack.hot-update.json:0
+[   69146ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25630
+[   69288ms] [WARNING] Image with src "/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:15
+[   69524ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:196
+[   70585ms] [LOG] [Fast Refresh] done in 1061ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:13

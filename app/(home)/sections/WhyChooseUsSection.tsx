@@ -12,6 +12,7 @@ import {
   Settings2,
   UserRound,
 } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 // =============================================================================
 // USP PILLS
@@ -36,6 +37,7 @@ function UspPill({ icon, text }: { icon: React.ReactNode; text: string }) {
 function MoneybirdVisual() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const t = useT();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -77,26 +79,28 @@ function MoneybirdVisual() {
                   <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
                 </div>
                 <div className="ml-1 rounded-md border border-slate-100 bg-white px-2 py-0.5 text-[8px] font-semibold text-[#102A4A]">
-                  Moneybird administratie
+                  {t.why.visual.windowTitle}
                 </div>
               </div>
 
               <div className="flex h-full flex-col p-3 pb-8">
                 {/* Kop met status */}
                 <div className="flex items-center justify-between">
-                  <div className="text-[10px] font-bold text-[#102A4A]">Overzicht</div>
+                  <div className="text-[10px] font-bold text-[#102A4A]">
+                    {t.why.visual.overview}
+                  </div>
                   <div className="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[7px] font-semibold text-emerald-600">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    Bijgewerkt vandaag
+                    {t.why.visual.updatedToday}
                   </div>
                 </div>
 
                 {/* Generieke cijfers: omzet / kosten / resultaat */}
                 <div className="mt-2 grid grid-cols-3 gap-2">
                   {[
-                    { label: "Omzet", width: "85%" },
-                    { label: "Kosten", width: "55%" },
-                    { label: "Resultaat", width: "70%" },
+                    { label: t.why.visual.revenue, width: "85%" },
+                    { label: t.why.visual.costs, width: "55%" },
+                    { label: t.why.visual.result, width: "70%" },
                   ].map((stat) => (
                     <div key={stat.label} className="rounded-lg border border-slate-100 bg-[#F9FCFE] p-2">
                       <div className="text-[7px] font-medium text-slate-400">{stat.label}</div>
@@ -133,11 +137,11 @@ function MoneybirdVisual() {
                 <div className="mt-2 space-y-1">
                   <div className="flex items-center gap-1.5 rounded-md bg-emerald-50/70 px-2 py-1">
                     <Check className="h-2.5 w-2.5 text-emerald-500" />
-                    <span className="text-[7px] font-medium text-slate-600">12 documenten verwerkt</span>
+                    <span className="text-[7px] font-medium text-slate-600">{t.why.visual.docsProcessed}</span>
                   </div>
                   <div className="flex items-center gap-1.5 rounded-md bg-sky-50/70 px-2 py-1">
                     <FileText className="h-2.5 w-2.5 text-sky-500" />
-                    <span className="text-[7px] font-medium text-slate-600">3 openstaande facturen</span>
+                    <span className="text-[7px] font-medium text-slate-600">{t.why.visual.openInvoices}</span>
                   </div>
                 </div>
               </div>
@@ -159,8 +163,8 @@ function MoneybirdVisual() {
                   <Check className="h-4 w-4" />
                 </div>
                 <div className="text-center">
-                  <div className="text-[7px] font-bold text-[#102A4A]">Bonnetje toegevoegd</div>
-                  <div className="text-[6px] text-slate-500">Direct in je administratie</div>
+                  <div className="text-[7px] font-bold text-[#102A4A]">{t.why.visual.receiptAdded}</div>
+                  <div className="text-[6px] text-slate-500">{t.why.visual.directInAdmin}</div>
                 </div>
               </div>
             </div>
@@ -176,8 +180,8 @@ function MoneybirdVisual() {
             <Check className="h-3.5 w-3.5 text-emerald-500" />
           </div>
           <div>
-            <div className="text-[10px] font-bold text-[#102A4A]">Administratie bijgewerkt</div>
-            <div className="text-[8px] text-slate-500">Klaar voor controle</div>
+            <div className="text-[10px] font-bold text-[#102A4A]">{t.why.visual.adminUpdated}</div>
+            <div className="text-[8px] text-slate-500">{t.why.visual.readyForReview}</div>
           </div>
         </div>
 
@@ -187,7 +191,7 @@ function MoneybirdVisual() {
           style={{ transform: "translateZ(40px)" }}
         >
           <Eye className="h-3.5 w-3.5 text-[#249BF4]" />
-          <span className="text-[10px] font-semibold text-[#334A62]">DRFA kijkt mee</span>
+          <span className="text-[10px] font-semibold text-[#334A62]">{t.why.visual.drfaWatches}</span>
         </div>
       </div>
     </div>
@@ -198,34 +202,11 @@ function MoneybirdVisual() {
 // DE 3 STAPPEN
 // Statische proces-uitleg: alle stappen zijn "compleet" zichtbaar.
 // =============================================================================
-const START_STEPS = [
-  {
-    number: "01",
-    icon: Handshake,
-    title: "Kennismaken",
-    subtitle: "We bespreken jouw onderneming",
-    detail: "We bekijken hoe je administratie nu geregeld is en wat jij nodig hebt.",
-    numberColor: "#249BF4",
-    featured: false,
-  },
-  {
-    number: "02",
-    icon: Settings2,
-    title: "Moneybird inrichten",
-    subtitle: "Alles goed ingesteld",
-    detail: "We zorgen samen dat je administratie goed staat en dat DRFA toegang heeft om met je mee te werken.",
-    numberColor: "#22CDAE",
-    featured: true,
-  },
-  {
-    number: "03",
-    icon: MonitorCheck,
-    title: "Samen verder",
-    subtitle: "Online inzicht, wij kijken mee",
-    detail: "Je administratie blijft online beschikbaar. Jij houdt overzicht en DRFA verwerkt, controleert en ondersteunt waar nodig.",
-    numberColor: "#249BF4",
-    featured: false,
-  },
+// Stijl per stap; de teksten komen uit de vertalingen (lib/translations.ts)
+const STEP_STYLES = [
+  { icon: Handshake, numberColor: "#249BF4", featured: false },
+  { icon: Settings2, numberColor: "#22CDAE", featured: true },
+  { icon: MonitorCheck, numberColor: "#249BF4", featured: false },
 ];
 
 function StepIcon({ icon: Icon, featured }: { icon: typeof Handshake; featured: boolean }) {
@@ -245,6 +226,8 @@ function StepIcon({ icon: Icon, featured }: { icon: typeof Handshake; featured: 
 }
 
 function StepsDesktop() {
+  const t = useT();
+
   return (
     <div className="relative mt-20 hidden md:block">
       {/* Connector: dunne lijn met gradient (proces-uitleg, geen progress bar) */}
@@ -256,16 +239,16 @@ function StepsDesktop() {
       </div>
 
       <div className="relative grid grid-cols-3 gap-8">
-        {START_STEPS.map((step) => (
+        {t.why.steps.map((step, index) => (
           <div key={step.number} className="flex flex-col items-center text-center">
             <div
               className="mb-2 text-sm font-extrabold tracking-[0.08em]"
-              style={{ color: step.numberColor }}
+              style={{ color: STEP_STYLES[index].numberColor }}
             >
               {step.number}
             </div>
             <div className="relative z-10">
-              <StepIcon icon={step.icon} featured={step.featured} />
+              <StepIcon icon={STEP_STYLES[index].icon} featured={STEP_STYLES[index].featured} />
             </div>
             <h3 className="mt-4 text-lg font-bold text-[#102A4A]">{step.title}</h3>
             <p className="mt-1 text-sm font-semibold text-[#344B63]">{step.subtitle}</p>
@@ -278,6 +261,8 @@ function StepsDesktop() {
 }
 
 function StepsMobile() {
+  const t = useT();
+
   return (
     <div className="relative mt-14 md:hidden">
       {/* Verticale connector */}
@@ -289,15 +274,15 @@ function StepsMobile() {
       </div>
 
       <div className="relative space-y-8">
-        {START_STEPS.map((step) => (
+        {t.why.steps.map((step, index) => (
           <div key={step.number} className="flex gap-5">
             <div className="relative z-10 shrink-0">
-              <StepIcon icon={step.icon} featured={step.featured} />
+              <StepIcon icon={STEP_STYLES[index].icon} featured={STEP_STYLES[index].featured} />
             </div>
             <div className="pt-1">
               <div
                 className="text-xs font-extrabold tracking-[0.08em]"
-                style={{ color: step.numberColor }}
+                style={{ color: STEP_STYLES[index].numberColor }}
               >
                 {step.number}
               </div>
@@ -313,13 +298,14 @@ function StepsMobile() {
 }
 
 // =============================================================================
-// MAIN SECTION — "Zo starten we samen"
+// MAIN SECTION - "Zo starten we samen"
 // Kernboodschap: jij houdt overzicht in Moneybird, DRFA zorgt dat je
 // administratie goed staat en blijft kloppen.
 // =============================================================================
 export function WhyChooseUsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -335,8 +321,7 @@ export function WhyChooseUsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden px-6 pb-20 pt-24 md:px-8 md:pb-[95px] md:pt-[110px]"
-      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F8FCFF 100%)" }}
+      className="relative overflow-hidden bg-white px-6 pb-20 pt-24 md:px-8 md:pb-[95px] md:pt-[110px]"
     >
       <div className="mx-auto max-w-[1200px]">
         {/* Bovenste gedeelte: tekst links, Moneybird visual rechts */}
@@ -348,30 +333,28 @@ export function WhyChooseUsSection() {
             }`}
           >
             <h2 className="text-[42px] font-extrabold leading-[1.05] tracking-[-0.035em] text-[#102A4A] md:text-[48px] lg:text-[54px]">
-              Zo starten we{" "}
+              {t.why.titlePre}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #269CF4 0%, #22CDAE 100%)" }}
               >
-                samen
+                {t.why.titleGradient}
               </span>
             </h2>
 
             <p className="mt-5 text-lg leading-[1.55] text-[#344B63] [font-weight:650]">
-              In 3 duidelijke stappen naar een administratie die goed staat en online inzichtelijk blijft.
+              {t.why.lead}
             </p>
 
             <p className="mt-4 max-w-[600px] text-[16px] leading-[1.75] text-[#65778A] md:text-[17px]">
-              We beginnen met een korte kennismaking, richten daarna samen je Moneybird-administratie
-              goed in en zorgen dat je boekhouding vanaf dat moment overzichtelijk blijft. Jij houdt
-              online inzicht, wij kijken mee en helpen waar nodig.
+              {t.why.intro}
             </p>
 
             {/* USP pills */}
             <div className="mt-7 flex flex-wrap gap-3">
-              <UspPill icon={<Handshake className="h-4 w-4" />} text="Gratis & vrijblijvend kennismaken" />
-              <UspPill icon={<Settings2 className="h-4 w-4" />} text="Moneybird samen ingericht" />
-              <UspPill icon={<UserRound className="h-4 w-4" />} text="Persoonlijk contact" />
+              <UspPill icon={<Handshake className="h-4 w-4" />} text={t.why.pills[0]} />
+              <UspPill icon={<Settings2 className="h-4 w-4" />} text={t.why.pills[1]} />
+              <UspPill icon={<UserRound className="h-4 w-4" />} text={t.why.pills[2]} />
             </div>
 
             {/* CTA's */}
@@ -381,21 +364,21 @@ export function WhyChooseUsSection() {
                 className="group inline-flex h-[54px] items-center justify-center gap-2 rounded-[15px] px-[26px] font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:brightness-105"
                 style={{ background: "linear-gradient(90deg, #249BF4, #20CDA9)" }}
               >
-                Plan kennismaking
+                {t.why.ctaPlan}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="#pakketten"
                 className="inline-flex h-[54px] items-center justify-center rounded-[15px] border-[1.5px] border-[#BFD2E2] bg-white/60 px-[26px] font-semibold text-[#174A6D] transition-all duration-300 hover:border-[#249BF4] hover:bg-white"
               >
-                Bekijk pakketten
+                {t.why.ctaPackages}
               </Link>
             </div>
 
             {/* Trustline voor bestaande Moneybird-gebruikers */}
             <p className="mt-5 flex items-center gap-1.5 text-[13px] text-[#73869A]">
               <Check className="h-3.5 w-3.5 shrink-0 text-[#18B99C]" />
-              Werk je al met Moneybird? Geen probleem — dan sluiten we aan op je bestaande administratie.
+              {t.why.trustline}
             </p>
           </div>
 

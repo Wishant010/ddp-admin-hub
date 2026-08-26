@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { SOCIALS } from "@/lib/constants";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -13,42 +12,47 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 export function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#0B3772] via-[#0A4488] to-[#082A5B] py-20 md:py-28">
-      {/* Animated background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 right-10 h-32 w-32 rounded-full bg-white/5 animate-float" />
+    <section className="bg-white py-20 md:py-28">
+      <div className="container">
+        {/* Lichte CTA-card */}
         <div
-          className="absolute bottom-10 left-10 h-24 w-24 rounded-full bg-white/5 animate-float"
-          style={{ animationDelay: "1.5s" }}
-        />
-        <div className="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-gradient-to-br from-sky-400/15 to-emerald-400/10 blur-3xl" />
-        <div className="absolute -bottom-24 right-1/4 h-72 w-72 rounded-full bg-gradient-to-br from-emerald-400/15 to-sky-400/10 blur-3xl" />
-      </div>
+          className="relative mx-auto max-w-4xl overflow-hidden rounded-[28px] border border-[#E4EDF4] bg-white px-6 py-14 text-center md:px-12 md:py-16"
+          style={{ boxShadow: "0 20px 55px rgba(31, 58, 88, 0.08), 0 4px 14px rgba(31, 58, 88, 0.04)" }}
+        >
+          {/* Subtiele accenten in de hoeken */}
+          <div className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-gradient-to-br from-sky-100/70 to-emerald-100/50 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-gradient-to-br from-emerald-100/60 to-sky-100/50 blur-3xl" />
 
-      <div className="container relative text-center">
-        <h2 className="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl">
-          Klaar om te starten?
-        </h2>
-        <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
-          Neem vrijblijvend contact op voor een kennismakingsgesprek. We bespreken graag hoe we jou kunnen helpen.
-        </p>
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button asChild variant="hero" size="xl" className="group glow-accent">
-            <Link href="#contact">
-              Neem contact op
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
-          <Button asChild variant="heroOutline" size="xl" className="group">
-            <a
-              href={SOCIALS.whatsappUrl("Hallo! Ik wil graag kennismaken.")}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <WhatsAppIcon className="h-5 w-5 transition-transform group-hover:scale-110" />
-              WhatsApp ons
-            </a>
-          </Button>
+          <div className="relative">
+            <h2 className="mb-4 text-3xl font-bold text-[#102A4A] md:text-4xl">
+              Klaar om te starten?
+            </h2>
+            <p className="mx-auto mb-8 max-w-xl text-lg text-[#65778A]">
+              Neem vrijblijvend contact op voor een kennismakingsgesprek. We bespreken graag hoe we jou kunnen helpen.
+            </p>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="#contact"
+                className="group inline-flex h-[54px] items-center justify-center gap-2 rounded-full px-8 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-[1px] hover:brightness-105"
+                style={{
+                  background: "linear-gradient(90deg, #29A8FF 0%, #27D3B2 100%)",
+                  boxShadow: "0 10px 30px rgba(26, 133, 220, 0.22)",
+                }}
+              >
+                Neem contact op
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a
+                href={SOCIALS.whatsappUrl("Hallo! Ik wil graag kennismaken.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-[54px] items-center justify-center gap-2 rounded-full border-[1.5px] border-[#BFD2E2] bg-white px-8 text-base font-semibold text-[#174A6D] transition-all duration-300 hover:border-[#249BF4] hover:bg-sky-50/50"
+              >
+                <WhatsAppIcon className="h-5 w-5 transition-transform group-hover:scale-110" />
+                WhatsApp ons
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

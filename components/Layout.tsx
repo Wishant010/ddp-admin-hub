@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Mail, ChevronRight, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { NAV_ITEMS, CONTACT, SOCIALS, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/constants";
+import { Menu, X, Phone, Mail, MapPin, ChevronRight } from "lucide-react";
+import { CONTACT, SOCIALS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { useT } from "@/lib/i18n";
+import { LanguageToggle } from "@/components/LanguageToggle";
 
 // WhatsApp Icon Component
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -23,6 +24,15 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const t = useT();
+
+  const navItems = [
+    { label: t.nav.home, href: "#top" },
+    { label: t.nav.packages, href: "#pakketten" },
+    { label: t.nav.about, href: "#over-ons" },
+    { label: t.nav.reviews, href: "#reviews" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,13 +63,13 @@ export function Header() {
               className="h-16 w-auto"
             />
             <span className="hidden text-xl font-semibold text-slate-800 sm:block">
-              Administratiekantoor
+              {t.header.companyShort}
             </span>
           </Link>
 
           {/* Desktop Navigation - Centered */}
           <nav className="hidden items-center gap-10 lg:flex">
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -80,28 +90,32 @@ export function Header() {
 
           {/* Desktop CTAs - Right */}
           <div className="hidden items-center gap-4 lg:flex shrink-0">
+            <LanguageToggle variant="light" />
             <Link
               href="#pakketten"
               className="rounded-full border-2 border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-all hover:border-[#0B3772] hover:text-[#0B3772] hover:bg-slate-50"
             >
-              Bekijk pakketten
+              {t.header.viewPackages}
             </Link>
             <Link
               href="#contact"
               className="rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-emerald-400 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:from-sky-300 hover:via-blue-400 hover:to-emerald-300 hover:shadow-lg"
             >
-              Offerte aanvragen
+              {t.header.requestQuote}
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
-            aria-label="Open menu"
-          >
-            <Menu className="h-7 w-7" />
-          </button>
+          {/* Mobile: Language Toggle + Menu Button */}
+          <div className="flex items-center gap-3 lg:hidden">
+            <LanguageToggle variant="light" />
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100"
+              aria-label={t.header.openMenu}
+            >
+              <Menu className="h-7 w-7" />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -112,12 +126,13 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 bg-[#0B3772] lg:hidden">
           <div className="flex h-full flex-col">
-            {/* Close Button */}
-            <div className="flex justify-end p-6">
+            {/* Language Toggle + Close Button */}
+            <div className="flex items-center justify-between p-6">
+              <LanguageToggle variant="dark" />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-lg p-2 text-white transition-transform hover:rotate-90 duration-300"
-                aria-label="Sluit menu"
+                aria-label={t.header.closeMenu}
               >
                 <X className="h-8 w-8" />
               </button>
@@ -125,7 +140,7 @@ export function Header() {
 
             {/* Mobile Nav Links */}
             <nav className="flex flex-1 flex-col justify-center px-8">
-              {NAV_ITEMS.map((item) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -145,14 +160,14 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-emerald-400 py-4 text-center text-lg font-semibold text-white shadow-lg"
               >
-                Offerte aanvragen
+                {t.header.requestQuote}
               </Link>
               <Link
                 href="#pakketten"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full rounded-full border-2 border-white/30 py-4 text-center text-lg font-semibold text-white"
               >
-                Bekijk pakketten
+                {t.header.viewPackages}
               </Link>
             </div>
           </div>
@@ -167,60 +182,66 @@ export function Header() {
 // =============================================================================
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useT();
+
+  const navItems = [
+    { label: t.nav.home, href: "#top" },
+    { label: t.nav.packages, href: "#pakketten" },
+    { label: t.nav.about, href: "#over-ons" },
+    { label: t.nav.reviews, href: "#reviews" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   return (
-    <footer className="border-t border-border bg-muted/30">
-      <div className="container py-12">
-        <div className="grid gap-8 md:grid-cols-4">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="group inline-flex items-center gap-2">
+    <footer className="relative bg-[#08234A]">
+      {/* Subtiele accentlijn bovenaan */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-sky-400/50 to-transparent" />
+
+      <div className="container py-16 md:py-20">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+          {/* Merk */}
+          <div className="md:col-span-5">
+            <Link href="/" className="inline-flex items-center gap-3">
               <Image
                 src="/logo.png"
                 alt="DRFA Logo"
                 width={80}
                 height={40}
-                className="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                className="h-11 w-auto rounded-full bg-white p-0.5"
               />
-              <span className="text-lg font-semibold leading-none">Administratiekantoor DRFA</span>
+              <span className="text-lg font-semibold text-white">
+                {t.header.companyShort}
+              </span>
             </Link>
-            <p className="mt-4 max-w-md text-sm text-muted-foreground">
-              Persoonlijke administratieve ondersteuning voor freelancers, zzp&apos;ers en kleine ondernemers.
-              Geen ingewikkelde termen, gewoon eerlijk advies.
+            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-slate-300">
+              {t.footer.description}
             </p>
-            <div className="mt-4 flex gap-3">
+            <div className="mt-6 flex gap-3">
               <a
-                href={SOCIALS.instagram}
+                href={SOCIALS.whatsappUrl(t.whatsapp.defaultMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg p-2 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground hover:scale-110"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href={SOCIALS.whatsappUrl(DEFAULT_WHATSAPP_MESSAGE)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg p-2 text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground hover:scale-110"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-slate-300 transition-all duration-200 hover:border-emerald-400/60 hover:bg-white/10 hover:text-white"
                 aria-label="WhatsApp"
               >
-                <WhatsAppIcon className="h-5 w-5" />
+                <WhatsAppIcon className="h-[18px] w-[18px]" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="mb-4 font-semibold">Snelle links</h4>
-            <ul className="space-y-2">
-              {NAV_ITEMS.map((item) => (
+          {/* Navigatie */}
+          <div className="md:col-span-3 md:col-start-7">
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-sky-300">
+              {t.footer.navTitle}
+            </h4>
+            <ul className="space-y-3">
+              {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="group inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-[15px] text-slate-300 transition-colors hover:text-white"
                   >
-                    <span className="link-underline">{item.label}</span>
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -228,29 +249,45 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="mb-4 font-semibold">Contact</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2 group">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 transition-colors group-hover:text-primary" />
-                <a href={`tel:${CONTACT.phone}`} className="hover:text-foreground transition-colors">
+          <div className="md:col-span-3">
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-sky-300">
+              {t.footer.contactTitle}
+            </h4>
+            <ul className="space-y-4 text-[15px]">
+              <li>
+                <a
+                  href={`tel:${CONTACT.phone}`}
+                  className="group flex items-center gap-3 text-slate-300 transition-colors hover:text-white"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-sky-300/80" />
                   {CONTACT.phoneDisplay}
                 </a>
               </li>
-              <li className="flex items-start gap-2 group">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 transition-colors group-hover:text-primary" />
-                <a href={`mailto:${CONTACT.email}`} className="hover:text-foreground transition-colors">
+              <li>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="group flex items-center gap-3 text-slate-300 transition-colors hover:text-white"
+                >
+                  <Mail className="h-4 w-4 shrink-0 text-sky-300/80" />
                   {CONTACT.email}
                 </a>
+              </li>
+              <li className="flex items-start gap-3 text-slate-300">
+                <MapPin className="mt-1 h-4 w-4 shrink-0 text-sky-300/80" />
+                <span className="min-w-0 [overflow-wrap:anywhere]">
+                  {CONTACT.address}
+                  <br />
+                  {CONTACT.postalCity}
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground md:flex-row">
-          <p>© {currentYear} Administratiekantoor DRFA. Alle rechten voorbehouden.</p>
-          <p>KVK: {CONTACT.kvk}</p>
+        {/* Onderste balk */}
+        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-sm text-slate-400 md:flex-row">
+          <p>© {currentYear} {t.header.companyFull}. {t.footer.rights}.</p>
+          <p>KVK {CONTACT.kvk}, Haarlem</p>
         </div>
       </div>
     </footer>
@@ -261,14 +298,16 @@ export function Footer() {
 // WHATSAPP FLOATING BUTTON
 // =============================================================================
 export function WhatsAppFloatingButton() {
+  const t = useT();
+
   return (
     <a
-      href={SOCIALS.whatsappUrl(DEFAULT_WHATSAPP_MESSAGE)}
+      href={SOCIALS.whatsappUrl(t.whatsapp.defaultMessage)}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl animate-bounce-in animate-pulse-glow"
       style={{ animationDelay: "1s" }}
-      aria-label="Chat via WhatsApp"
+      aria-label={t.whatsapp.chatLabel}
     >
       <WhatsAppIcon className="h-7 w-7" />
     </a>

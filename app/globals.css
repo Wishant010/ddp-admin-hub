@@ -206,6 +206,38 @@
   animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Doorlopende reviews-diavoorstelling: beweegt van links naar rechts */
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-right {
+  animation: marqueeRight 55s linear infinite;
+}
+
+/* Gradient voor de hero-headline die ook werkt op losse GSAP SplitText letters.
+   bg-clip-text op de parent breekt zodra letters een eigen transform krijgen,
+   daarom krijgt elke letter zijn eigen gradient. */
+.hero-grad,
+.hero-grad .split-char {
+  background-image: linear-gradient(90deg, #30a9ff, #29d4b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Tweede rij beweegt de andere kant op voor een gelaagd effect */
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-left {
+  animation: marqueeLeft 65s linear infinite;
+}
+
 /* 3D Perspective for device stack */
 .perspective-1000 {
   perspective: 1000px;
@@ -235,7 +267,9 @@ html {
   }
   .animate-fade-in-up,
   .animate-pulse-glow,
-  .animate-bounce-in {
+  .animate-bounce-in,
+  .animate-marquee-right,
+  .animate-marquee-left {
     animation: none;
   }
   .animate-on-scroll {
@@ -264,7 +298,3 @@ html {
   @apply bg-muted-foreground/50;
 }
 
-/* Selection styling */
-::selection {
-  @apply bg-primary/20 text-foreground;
-}
